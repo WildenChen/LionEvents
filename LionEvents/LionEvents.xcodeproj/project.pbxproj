@@ -15,6 +15,7 @@
 		E01F5AE21B21576100D496F6 /* UIButton+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01F5ADA1B21576100D496F6 /* UIButton+Event.swift */; };
 		E01F5AE41B21576100D496F6 /* UISwitch+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01F5ADC1B21576100D496F6 /* UISwitch+Event.swift */; };
 		E01F5AE51B21576100D496F6 /* UITextField+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01F5ADD1B21576100D496F6 /* UITextField+Event.swift */; };
+		E085E76B1B267CDB0073B3E1 /* LionEvents.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E085E76A1B267CDB0073B3E1 /* LionEvents.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		E01F5ADA1B21576100D496F6 /* UIButton+Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Event.swift"; sourceTree = "<group>"; };
 		E01F5ADC1B21576100D496F6 /* UISwitch+Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISwitch+Event.swift"; sourceTree = "<group>"; };
 		E01F5ADD1B21576100D496F6 /* UITextField+Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Event.swift"; sourceTree = "<group>"; };
+		E085E76A1B267CDB0073B3E1 /* LionEvents.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LionEvents.podspec; path = /Users/wilden/Projects/Xcode/LionEvents/LionEventsExample/../LionEvents.podspec; sourceTree = "<absolute>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 		E01F5AAC1B21570C00D496F6 = {
 			isa = PBXGroup;
 			children = (
+				E085E76A1B267CDB0073B3E1 /* LionEvents.podspec */,
 				E01F5AB81B21570C00D496F6 /* LionEvents */,
 				E01F5AC51B21570C00D496F6 /* LionEventsTests */,
 				E01F5AB71B21570C00D496F6 /* Products */,
@@ -181,6 +184,7 @@
 		E01F5AAD1B21570C00D496F6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Lion Infomation Technology Co.,Ltd.";
 				TargetAttributes = {
@@ -215,6 +219,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E085E76B1B267CDB0073B3E1 /* LionEvents.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +365,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -377,6 +383,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -430,6 +437,7 @@
 				E01F5ACE1B21570C00D496F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E01F5ACF1B21570C00D496F6 /* Build configuration list for PBXNativeTarget "LionEventsTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +446,7 @@
 				E01F5AD11B21570C00D496F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

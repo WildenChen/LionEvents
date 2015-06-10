@@ -17,25 +17,26 @@ public class EventDispatcher {
         
     }
     
-    public func addEventListener(aEventName:String, aHandler:()->Void) -> EventListener {
-        var _newListener:EventListener = EventListener(aHandler: aHandler)
+    public func addEventListener(aEventName:String, _ aHandler:()->Void) -> EventListener {
+        let _newListener:EventListener = EventListener(aHandler: aHandler)
         var _newListeners:[EventListener] = (mListeners[aEventName] == nil) ? [] : mListeners[aEventName]!
         _newListeners.append(_newListener)
         mListeners.updateValue(_newListeners, forKey: aEventName)
         return _newListener
     }
     
-    public func addEventListener(aEventName:String, aHandler:(aEvent:LNEvent)->Void) -> EventListener {
-        var _newListener:EventListener = EventListener(aHandler: aHandler)
+    public func addEventListener(aEventName:String, _ aHandler:(aEvent:LNEvent)->Void) -> EventListener {
+        let _newListener:EventListener = EventListener(aHandler: aHandler)
         var _newListeners:[EventListener] = (mListeners[aEventName] == nil) ? [] : mListeners[aEventName]!
         _newListeners.append(_newListener)
         mListeners.updateValue(_newListeners, forKey: aEventName)
         return _newListener
     }
     
-    public func removeEventListener(aEventName:String,aListener:EventListener){
+    public func removeEventListener(aEventName:String, aListener:EventListener){
         if let _listeners:[EventListener] = mListeners[aEventName] {
             var _nowListeners:[EventListener] = _listeners
+            //if let _index:Int = _nowListeners.indexOf(aListener){
             if let _index:Int = find(_nowListeners, aListener){
                 _nowListeners.removeAtIndex(_index)
             }
@@ -60,7 +61,7 @@ public class EventDispatcher {
         }
     }
     
-    public func dispatchEvent(aEventName:String,aInformation:Any? = nil) -> Bool{
+    public func dispatchEvent(aEventName:String, _ aInformation:Any? = nil) -> Bool{
         var _result:Bool = false
         if let _listeners:[EventListener] = mListeners[aEventName]{
             for _listener in _listeners {
@@ -68,8 +69,8 @@ public class EventDispatcher {
                     _handler()
                     _result = true
                 }else if let _handler:(aEvent:LNEvent) -> Void = _listener.eventHandler{
-                    var _currentTarget:Any = (self.currentTarget == nil) ? self : currentTarget!
-                    var _event:LNEvent = LNEvent(aTarget: self, aCurrentTarget: _currentTarget, aType: aEventName, aInformation: aInformation)
+                    let _currentTarget:Any = (self.currentTarget == nil) ? self : currentTarget!
+                    let _event:LNEvent = LNEvent(aTarget: self, aCurrentTarget: _currentTarget, aType: aEventName, aInformation: aInformation)
                     _handler(aEvent: _event)
                     _result = true
                 }

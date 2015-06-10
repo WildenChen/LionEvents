@@ -13,29 +13,25 @@ public enum LNSwitchEvents:String{
 }
 
 extension UISwitch {
-    public func addEventListener(aEventType:LNSwitchEvents, aHandler: () -> Void) -> EventListener{
+    public func addEventListener(aEventType:LNSwitchEvents, _ aHandler: () -> Void) -> EventListener{
         switch aEventType {
         case LNSwitchEvents.CHANGED:
             self.addTarget(self, action: Selector("onValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
-        default:
-            break
         }
         
         let _eventType:String = aEventType.rawValue
-        var _listener:EventListener = self.addEventListener(_eventType, aHandler: aHandler)
+        let _listener:EventListener = self.addEventListener(_eventType, aHandler)
         return _listener
     }
     
-    public func addEventListener(aEventType:LNSwitchEvents, aHandler: (aEvent: LNEvent) -> Void) -> EventListener{
+    public func addEventListener(aEventType:LNSwitchEvents, _ aHandler: (aEvent: LNEvent) -> Void) -> EventListener{
         switch aEventType {
         case LNSwitchEvents.CHANGED:
             self.addTarget(self, action: Selector("onValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
-        default:
-            break
         }
-
+        
         let _eventType:String = aEventType.rawValue
-        var _listener:EventListener = self.addEventListener(_eventType, aHandler: aHandler)
+        let _listener:EventListener = self.addEventListener(_eventType, aHandler)
         return _listener
     }
     
@@ -43,7 +39,7 @@ extension UISwitch {
         self.dispatchEvent(LNSwitchEvents.CHANGED.rawValue)
     }
     
-    public func removeEventListener(aEventType:LNSwitchEvents,aListener:EventListener){
+    public func removeEventListener(aEventType:LNSwitchEvents, aListener:EventListener){
         let _eventType:String = aEventType.rawValue
         self.removeEventListener(_eventType, aListener: aListener)
         if !hasEventListener(_eventType) {

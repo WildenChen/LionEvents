@@ -10,7 +10,6 @@ LionEvents 是一個仿照 Adobe Flash Acrionscript 3.0 事件流機制的一個
 提供了一種比 NSNotification 還要快速的事件機制，而且更適合 自訂 UI 上的互動開發，更容易整合與架構程式碼。
 
 created for Swift 1.2 using Xcode 6.3.2.
-develop by Lion Information Technology Co.,Ltd.
 
 ## Features
 
@@ -53,8 +52,8 @@ pod 'LionEvents', :git => 'https://github.com/wilden0424/LionEvents.git'
 
 ```swift
 let _button:UIButton = UIButton(frame: CGRectMake(0, 0, 50, 30))
-_button.addEventListener(LNButtonEvents.TOUCH_UP_INSIDE, aHandler: onButtonHandler)        _button.addEventListener(LNButtonEvents.TOUCH_UP_OUTSIDE, aHandler: onButtonHandler)
-_button.addEventListener(LNButtonEvents.TOUCH_DOWN, aHandler: onButtonHandler)
+_button.addEventListener(LNButtonEvents.TOUCH_UP_INSIDE, onButtonHandler)        _button.addEventListener(LNButtonEvents.TOUCH_UP_OUTSIDE, onButtonHandler)
+_button.addEventListener(LNButtonEvents.TOUCH_DOWN, onButtonHandler)
 ```
 
 此時，上面三個事件 LNButtonEvents.TOUCH_UP_INSIDE，TOUCH_UP_OUTSIDE，TOUCH_DOWN 都會觸發 onButtonHandler 這個函數。
@@ -97,7 +96,7 @@ private func onButtonHandler(e:LNEvent){
 
 當然也可以使用閉包
 ```swift
-mModel.addEventListener(Model.ADD, aHandler: { (aEvent:LNEvent) -> Void in
+mModel.addEventListener(Model.ADD, { (aEvent:LNEvent) -> Void in
     println("\(aEvent.type),\(aEvent.target)")
 })
 ```
@@ -132,8 +131,8 @@ class Model:EventDispatcher {
 ```
 
 ```swift
-mModel.addEventListener(Model.ADD, aHandler:onModelChangeHandler)
-mModel.addEventListener(Model.DEC, aHandler:onModelChangeHandler)
+mModel.addEventListener(Model.ADD, onModelChangeHandler)
+mModel.addEventListener(Model.DEC, onModelChangeHandler)
 ```
 
 如果是繼承自 NSObject 的 Class，則已經擴充了事件流的方法了。
@@ -177,8 +176,8 @@ var mFirstButtonListener:EventListener?
 let mButton:UIButton = UIButton(frame: CGRectMake(0, 0, 50, 30))
 private func createMutilsEvents(){
     // if want to remove target listener handler
-    mFirstButtonListener = mButton.addEventListener(LNButtonEvents.TOUCH_UP_INSIDE, aHandler: onButtonFirstHandler)
-    mButton.addEventListener(LNButtonEvents.TOUCH_UP_INSIDE, aHandler: onButtonAlwaysHandler)
+    mFirstButtonListener = mButton.addEventListener(LNButtonEvents.TOUCH_UP_INSIDE, onButtonFirstHandler)
+    mButton.addEventListener(LNButtonEvents.TOUCH_UP_INSIDE, onButtonAlwaysHandler)
 }
 
 private func onButtonFirstHandler(){
@@ -214,9 +213,9 @@ LionEvents 雖然幾乎實踐了 ActionScript 3.0 的事件流程，然而也要
 
 ```swift
 let _model:Model = Model()
-_model.addEventListener(Model.ADD, aHandler: onModelChangeHandler)
-_model.addEventListener(Model.ADD, aHandler: onModelChangeHandler)
-_model.addEventListener(Model.ADD, aHandler: onModelChangeHandler)
+_model.addEventListener(Model.ADD, onModelChangeHandler)
+_model.addEventListener(Model.ADD, onModelChangeHandler)
+_model.addEventListener(Model.ADD, onModelChangeHandler)
 
 _model.index++
 
@@ -243,3 +242,4 @@ model change!
 ### License
 LionEvents is released under a BSD License. See LICENSE file for details.
 
+Develop by Lion Information Technology Co.,Ltd.

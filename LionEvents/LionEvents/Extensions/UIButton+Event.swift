@@ -23,7 +23,7 @@ public enum LNButtonEvents:String{
 }
 
 extension UIButton {
-    public func addEventListener(aEventType:LNButtonEvents, aHandler: () -> Void) -> EventListener{
+    public func addEventListener(aEventType:LNButtonEvents, _ aHandler: () -> Void) -> EventListener{
         switch aEventType {
         case LNButtonEvents.TOUCH_CANCEL:
             self.addTarget(self, action: Selector("onTouchCanel:"), forControlEvents: UIControlEvents.TouchCancel)
@@ -45,16 +45,14 @@ extension UIButton {
             self.addTarget(self, action: Selector("onTouchUpInside:"), forControlEvents: UIControlEvents.TouchUpInside)
         case LNButtonEvents.ALL_TOUCH_EVENTS:
             self.addTarget(self, action: Selector("onAllTouchEvents:"), forControlEvents: UIControlEvents.AllTouchEvents)
-        default:
-            break
         }
         
         let _eventType:String = aEventType.rawValue
-        var _listener:EventListener = self.addEventListener(_eventType, aHandler: aHandler)
+        let _listener:EventListener = self.addEventListener(_eventType, aHandler)
         return _listener
     }
     
-    public func addEventListener(aEventType:LNButtonEvents, aHandler: (aEvent: LNEvent) -> Void) -> EventListener{
+    public func addEventListener(aEventType:LNButtonEvents, _ aHandler: (aEvent: LNEvent) -> Void) -> EventListener{
         switch aEventType {
         case LNButtonEvents.TOUCH_CANCEL:
             self.addTarget(self, action: Selector("onTouchCanel:"), forControlEvents: UIControlEvents.TouchCancel)
@@ -76,12 +74,10 @@ extension UIButton {
             self.addTarget(self, action: Selector("onTouchUpInside:"), forControlEvents: UIControlEvents.TouchUpInside)
         case LNButtonEvents.ALL_TOUCH_EVENTS:
             self.addTarget(self, action: Selector("onAllTouchEvents:"), forControlEvents: UIControlEvents.AllTouchEvents)
-        default:
-            break
         }
-
+        
         let _eventType:String = aEventType.rawValue
-        var _listener:EventListener = self.addEventListener(_eventType, aHandler: aHandler)
+        let _listener:EventListener = self.addEventListener(_eventType, aHandler)
         return _listener
     }
     
@@ -140,7 +136,7 @@ extension UIButton {
         self.removeTarget(self, action: Selector("onAllTouchEvents:"), forControlEvents: UIControlEvents.AllTouchEvents)
     }
     
-    public func removeEventListener(aEventType:LNButtonEvents,aListener:EventListener){
+    public func removeEventListener(aEventType:LNButtonEvents, aListener:EventListener){
         let _eventType:String = aEventType.rawValue
         self.removeEventListener(_eventType, aListener: aListener)
         //println("\(!hasEventListener(_eventType) )")
@@ -173,8 +169,6 @@ extension UIButton {
             self.removeTarget(self, action: Selector("onTouchUpInside:"), forControlEvents: UIControlEvents.TouchUpInside)
         case LNButtonEvents.ALL_TOUCH_EVENTS:
             self.removeTarget(self, action: Selector("onAllTouchEvents:"), forControlEvents: UIControlEvents.AllTouchEvents)
-        default:
-            break
         }
     }
     

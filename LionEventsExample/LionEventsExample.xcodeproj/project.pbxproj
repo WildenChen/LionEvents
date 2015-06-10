@@ -10,14 +10,11 @@
 		E036DFA51B256F2100C87077 /* ModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E036DFA41B256F2100C87077 /* ModelObject.swift */; };
 		E0E6C0291B2159E80089A739 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C0281B2159E80089A739 /* AppDelegate.swift */; };
 		E0E6C02B1B2159E80089A739 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C02A1B2159E80089A739 /* ViewController.swift */; };
-		E0E6C02E1B2159E80089A739 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0E6C02C1B2159E80089A739 /* Main.storyboard */; };
 		E0E6C0301B2159E80089A739 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0E6C02F1B2159E80089A739 /* Images.xcassets */; };
-		E0E6C0331B2159E80089A739 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0E6C0311B2159E80089A739 /* LaunchScreen.xib */; };
 		E0E6C03F1B2159E90089A739 /* LionEventsExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C03E1B2159E90089A739 /* LionEventsExampleTests.swift */; };
 		E0E6C0491B215BDC0089A739 /* LionEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0E6C0481B215BDC0089A739 /* LionEvents.framework */; };
 		E0E6C04B1B215C0F0089A739 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C04A1B215C0F0089A739 /* Model.swift */; };
 		E0E6C04D1B215C180089A739 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C04C1B215C180089A739 /* MainViewController.swift */; };
-		E0E6C04F1B215C240089A739 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C04E1B215C240089A739 /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,21 +29,17 @@
 
 /* Begin PBXFileReference section */
 		E036DFA41B256F2100C87077 /* ModelObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelObject.swift; sourceTree = "<group>"; };
-		E055D4021B258FC500AE85A3 /* LionEvents.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = LionEvents.podspec; path = ../LionEvents.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E0E6C0231B2159E80089A739 /* LionEventsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LionEventsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0E6C0271B2159E80089A739 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0E6C0281B2159E80089A739 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0E6C02A1B2159E80089A739 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E0E6C02D1B2159E80089A739 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E0E6C02F1B2159E80089A739 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		E0E6C0321B2159E80089A739 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		E0E6C0381B2159E90089A739 /* LionEventsExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LionEventsExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0E6C03D1B2159E90089A739 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0E6C03E1B2159E90089A739 /* LionEventsExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LionEventsExampleTests.swift; sourceTree = "<group>"; };
 		E0E6C0481B215BDC0089A739 /* LionEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LionEvents.framework; path = "../../LionEvents/build/Debug-iphoneos/LionEvents.framework"; sourceTree = "<group>"; };
 		E0E6C04A1B215C0F0089A739 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E0E6C04C1B215C180089A739 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		E0E6C04E1B215C240089A739 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +64,6 @@
 		E0E6C01A1B2159E80089A739 = {
 			isa = PBXGroup;
 			children = (
-				E055D4021B258FC500AE85A3 /* LionEvents.podspec */,
 				E0E6C0251B2159E80089A739 /* LionEventsExample */,
 				E0E6C03B1B2159E90089A739 /* LionEventsExampleTests */,
 				E0E6C0241B2159E80089A739 /* Products */,
@@ -90,14 +82,11 @@
 		E0E6C0251B2159E80089A739 /* LionEventsExample */ = {
 			isa = PBXGroup;
 			children = (
-				E0E6C04E1B215C240089A739 /* TestViewController.swift */,
 				E0E6C04C1B215C180089A739 /* MainViewController.swift */,
 				E0E6C04A1B215C0F0089A739 /* Model.swift */,
 				E0E6C0281B2159E80089A739 /* AppDelegate.swift */,
 				E0E6C02A1B2159E80089A739 /* ViewController.swift */,
-				E0E6C02C1B2159E80089A739 /* Main.storyboard */,
 				E0E6C02F1B2159E80089A739 /* Images.xcassets */,
-				E0E6C0311B2159E80089A739 /* LaunchScreen.xib */,
 				E0E6C0261B2159E80089A739 /* Supporting Files */,
 				E036DFA41B256F2100C87077 /* ModelObject.swift */,
 			);
@@ -174,6 +163,7 @@
 		E0E6C01B1B2159E80089A739 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Lion Infomation Technology Co.,Ltd.";
 				TargetAttributes = {
@@ -210,8 +200,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0E6C02E1B2159E80089A739 /* Main.storyboard in Resources */,
-				E0E6C0331B2159E80089A739 /* LaunchScreen.xib in Resources */,
 				E0E6C0301B2159E80089A739 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,7 +218,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0E6C04F1B215C240089A739 /* TestViewController.swift in Sources */,
 				E0E6C04B1B215C0F0089A739 /* Model.swift in Sources */,
 				E0E6C02B1B2159E80089A739 /* ViewController.swift in Sources */,
 				E0E6C0291B2159E80089A739 /* AppDelegate.swift in Sources */,
@@ -256,25 +243,6 @@
 			targetProxy = E0E6C0391B2159E90089A739 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		E0E6C02C1B2159E80089A739 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E0E6C02D1B2159E80089A739 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E0E6C0311B2159E80089A739 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E0E6C0321B2159E80089A739 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E0E6C0401B2159E90089A739 /* Debug */ = {
@@ -362,6 +330,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/wilden/Projects/Xcode/LionEvents/LionEvents/build/Debug-iphoneos",
@@ -376,6 +345,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/wilden/Projects/Xcode/LionEvents/LionEvents/build/Debug-iphoneos",

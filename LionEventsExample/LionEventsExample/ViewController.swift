@@ -11,7 +11,6 @@ import LionEvents
 class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     
@@ -19,12 +18,13 @@ class ViewController: UIViewController {
     let mButton:UIButton = UIButton(frame: CGRectMake(0, 0, 50, 30))
     private func createMutilsEvents(){
         // if want to remove target listener handler
-        mFirstButtonListener = mButton.addEventListener(LNButtonEvents.TOUCH_UP_INSIDE, aHandler: onButtonFirstHandler)
-        mButton.addEventListener(LNButtonEvents.TOUCH_UP_INSIDE, aHandler: onButtonAlwaysHandler)
+        mFirstButtonListener = mButton.addEventListener(LNButtonEvents.TOUCH_UP_INSIDE,onButtonFirstHandler)
+        mButton.addEventListener(LNButtonEvents.TOUCH_UP_INSIDE,onButtonAlwaysHandler)
+        
     }
     
     private func onButtonFirstHandler(){
-        mButton.removeEventListener(LNButtonEvents.TOUCH_UP_INSIDE, aListener: mFirstButtonListener!)
+        mButton.removeEventListener(LNButtonEvents.TOUCH_UP_INSIDE,aListener: mFirstButtonListener!)
     }
     
     private func onButtonAlwaysHandler(){
@@ -40,9 +40,9 @@ class ViewController: UIViewController {
     
     private func createUIKitEvent(){
         let _button:UIButton = UIButton(frame: CGRectMake(0, 0, 50, 30))
-        _button.addEventListener(LNButtonEvents.TOUCH_UP_INSIDE, aHandler: onButtonHandler)
-        _button.addEventListener(LNButtonEvents.TOUCH_UP_OUTSIDE, aHandler: onButtonHandler)
-        _button.addEventListener(LNButtonEvents.TOUCH_DOWN, aHandler: onButtonHandler)
+        _button.addEventListener(LNButtonEvents.TOUCH_UP_INSIDE, onButtonHandler)
+        _button.addEventListener(LNButtonEvents.TOUCH_UP_OUTSIDE, onButtonHandler)
+        _button.addEventListener(LNButtonEvents.TOUCH_DOWN, onButtonHandler)
     }
     
     private func onButtonHandler(e:LNEvent){
@@ -76,11 +76,11 @@ class ViewController: UIViewController {
     var mModelWillRemoveListener:EventListener?
     private func doWillRemoveEventListeners(){
         //mModel.addEventListener(Model.ADD, aHandler: onMondelWillRemoveHandler)
-        mModelWillRemoveListener = mModel.addEventListener(Model.ADD, aHandler: onMondelWillRemoveHandler)
+        mModelWillRemoveListener = mModel.addEventListener(Model.ADD, onMondelWillRemoveHandler)
     }
     
     private func onMondelWillRemoveHandler(){
-        mModel.removeEventListener(Model.ADD, aListener: mModelWillRemoveListener!)
+        mModel.removeEventListener( Model.ADD,aListener: mModelWillRemoveListener!)
     }
     
     
@@ -89,8 +89,8 @@ class ViewController: UIViewController {
     
     private func createCustomEventObject(){
         let _model:Model = Model()
-        _model.addEventListener(Model.ADD, aHandler: onModelChangeHandler)
-        _model.addEventListener(Model.DEC, aHandler: onModelChangeHandler)
+        _model.addEventListener(Model.ADD, onModelChangeHandler)
+        _model.addEventListener(Model.DEC, onModelChangeHandler)
     }
     
     private func onModelChangeHandler(aEvent:LNEvent){

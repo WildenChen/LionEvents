@@ -9,33 +9,33 @@
 import Foundation
 
 extension NSObject {
-    public func addEventListener(aEventName:String, aHandler:()->Void) -> EventListener{
+    public func addEventListener(aEventName:String, _ aHandler:()->Void) -> EventListener{
         var _newListener:EventListener?
         if let _eventDispatcher:EventDispatcher = EventDispatcher.allEventDispatchers[self.hash] {
-            _newListener = _eventDispatcher.addEventListener(aEventName, aHandler: aHandler)
+            _newListener = _eventDispatcher.addEventListener(aEventName, aHandler)
         }else{
             let _eventDispatcher:EventDispatcher = EventDispatcher()
             _eventDispatcher.currentTarget = self
-            _newListener = _eventDispatcher.addEventListener(aEventName, aHandler: aHandler)
+            _newListener = _eventDispatcher.addEventListener(aEventName, aHandler)
             EventDispatcher.allEventDispatchers.updateValue(_eventDispatcher, forKey: self.hash)
         }
         return _newListener!
     }
     
-    public func addEventListener(aEventName:String, aHandler:(aEvent:LNEvent)->Void) -> EventListener{
+    public func addEventListener(aEventName:String, _ aHandler:(aEvent:LNEvent)->Void) -> EventListener{
         var _newListener:EventListener?
         if let _eventDispatcher:EventDispatcher = EventDispatcher.allEventDispatchers[self.hash] {
-            _newListener = _eventDispatcher.addEventListener(aEventName, aHandler: aHandler)
+            _newListener = _eventDispatcher.addEventListener(aEventName, aHandler)
         }else{
             let _eventDispatcher:EventDispatcher = EventDispatcher()
             _eventDispatcher.currentTarget = self
-            _newListener = _eventDispatcher.addEventListener(aEventName, aHandler: aHandler)
+            _newListener = _eventDispatcher.addEventListener(aEventName, aHandler)
             EventDispatcher.allEventDispatchers.updateValue(_eventDispatcher, forKey: self.hash)
         }
         return _newListener!
     }
     
-    public func removeEventListener(aEventName:String,aListener:EventListener){
+    public func removeEventListener(aEventName:String, aListener:EventListener){
         if let _eventDispatcher:EventDispatcher = EventDispatcher.allEventDispatchers[self.hash] {
             _eventDispatcher.removeEventListener(aEventName, aListener: aListener)
         }
@@ -48,10 +48,10 @@ extension NSObject {
         }
     }
     
-    public func dispatchEvent(aEventName:String,aInformation:Any? = nil) -> Bool{
+    public func dispatchEvent(aEventName:String, _ aInformation:Any? = nil) -> Bool{
         var _result:Bool = false
         if let _eventDispatcher:EventDispatcher = EventDispatcher.allEventDispatchers[self.hash] {
-            _result = _eventDispatcher.dispatchEvent(aEventName, aInformation: aInformation)
+            _result = _eventDispatcher.dispatchEvent(aEventName, aInformation)
         }
         return _result
     }

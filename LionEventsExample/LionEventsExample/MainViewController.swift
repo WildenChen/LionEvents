@@ -22,13 +22,13 @@ class MainViewController: UIViewController {
         let _buttonWidth:CGFloat = (self.view.frame.width - _boardWidth * 3.0) / 2.0
         
         mAddbutton.frame = CGRectMake(_boardWidth, self.view.frame.height - _boardWidth - _buttonHeight, _buttonWidth, _buttonHeight)
-        mAddbutton.addEventListener(LNButtonEvents.TOUCH_UP_INSIDE, aHandler: onAddDecButtonHandler)
+        mAddbutton.addEventListener(LNButtonEvents.TOUCH_UP_INSIDE, onAddDecButtonHandler)
         mAddbutton.backgroundColor = UIColor.redColor()
         mAddbutton.setTitle("+1", forState: UIControlState.Normal)
         self.view.addSubview(mAddbutton)
         
         mDecbutton.frame = CGRectMake(_boardWidth * 2.0 + _buttonWidth, self.view.frame.height - _boardWidth - _buttonHeight, _buttonWidth, _buttonHeight)
-        mDecbutton.addEventListener(LNButtonEvents.TOUCH_UP_INSIDE, aHandler: onAddDecButtonHandler)
+        mDecbutton.addEventListener(LNButtonEvents.TOUCH_UP_INSIDE, onAddDecButtonHandler)
         mDecbutton.backgroundColor = UIColor.redColor()
         mDecbutton.setTitle("-1", forState: UIControlState.Normal)
         self.view.addSubview(mDecbutton)
@@ -38,12 +38,8 @@ class MainViewController: UIViewController {
         mResultLabel.textAlignment = NSTextAlignment.Center
         self.view.addSubview(mResultLabel)
         
-        mModel.addEventListener(Model.ADD, aHandler:onModelChangeHandler)
-        mModel.addEventListener(Model.DEC, aHandler:onModelChangeHandler)
-        
-        mModel.addEventListener(Model.ADD, aHandler: { (aEvent:LNEvent) -> Void in
-            println("\(aEvent.type),\(aEvent.target)")
-        })
+        mModel.addEventListener(Model.ADD, onModelChangeHandler)
+        mModel.addEventListener(Model.DEC, onModelChangeHandler)
     }
     
     private func onModelChangeHandler(){
@@ -66,12 +62,12 @@ class MainViewController: UIViewController {
     
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

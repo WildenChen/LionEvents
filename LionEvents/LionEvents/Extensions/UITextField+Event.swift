@@ -21,29 +21,25 @@ public enum LNTextFieldEvents:String{
 //UIKeyboardDidHideNotification
 
 extension UITextField {
-    public func addEventListener(aEventType:LNTextFieldEvents, aHandler: () -> Void) -> EventListener{
+    public func addEventListener(aEventType:LNTextFieldEvents, _ aHandler: () -> Void) -> EventListener{
         switch aEventType {
         case LNTextFieldEvents.EDITING_CHANGED:
             self.addTarget(self, action: Selector("onEditingChangedEvents:"), forControlEvents: UIControlEvents.EditingChanged)
-        default:
-            break
         }
         
         let _eventType:String = aEventType.rawValue
-        var _listener:EventListener = self.addEventListener(_eventType, aHandler: aHandler)
+        let _listener:EventListener = self.addEventListener(_eventType, aHandler)
         return _listener
     }
     
-    public func addEventListener(aEventType:LNTextFieldEvents, aHandler: (aEvent: LNEvent) -> Void) -> EventListener{
+    public func addEventListener(aEventType:LNTextFieldEvents, _ aHandler: (aEvent: LNEvent) -> Void) -> EventListener{
         switch aEventType {
         case LNTextFieldEvents.EDITING_CHANGED:
             self.addTarget(self, action: Selector("onEditingChangedEvents:"), forControlEvents: UIControlEvents.EditingChanged)
-        default:
-            break
         }
         
         let _eventType:String = aEventType.rawValue
-        var _listener:EventListener = self.addEventListener(_eventType, aHandler: aHandler)
+        let _listener:EventListener = self.addEventListener(_eventType, aHandler)
         return _listener
     }
     
@@ -52,7 +48,7 @@ extension UITextField {
         self.dispatchEvent(LNTextFieldEvents.EDITING_CHANGED.rawValue)
     }
     
-    public func removeEventListener(aEventType:LNTextFieldEvents,aListener:EventListener){
+    public func removeEventListener(aEventType:LNTextFieldEvents, aListener:EventListener){
         let _eventType:String = aEventType.rawValue
         self.removeEventListener(_eventType, aListener: aListener)
         if !hasEventListener(_eventType) {
