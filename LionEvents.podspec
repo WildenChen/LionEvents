@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name        = "LionEvents"
-    spec.version     = "0.9.1"
+    spec.version     = "0.9.2"
     spec.summary     = "Event Flow framework for iOS."
     spec.homepage    = "https://github.com/WildenChen/LionEvents"
     spec.license     = { :type => "BSD" }
