@@ -15,6 +15,7 @@
 		E0E6C0491B215BDC0089A739 /* LionEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0E6C0481B215BDC0089A739 /* LionEvents.framework */; };
 		E0E6C04B1B215C0F0089A739 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C04A1B215C0F0089A739 /* Model.swift */; };
 		E0E6C04D1B215C180089A739 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C04C1B215C180089A739 /* MainViewController.swift */; };
+		E0EDBDED1B2AE48A0062E762 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EDBDEC1B2AE48A0062E762 /* MainButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		E0E6C0481B215BDC0089A739 /* LionEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LionEvents.framework; path = "../../LionEvents/build/Debug-iphoneos/LionEvents.framework"; sourceTree = "<group>"; };
 		E0E6C04A1B215C0F0089A739 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E0E6C04C1B215C180089A739 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E0EDBDEC1B2AE48A0062E762 /* MainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				E0E6C02F1B2159E80089A739 /* Images.xcassets */,
 				E0E6C0261B2159E80089A739 /* Supporting Files */,
 				E036DFA41B256F2100C87077 /* ModelObject.swift */,
+				E0EDBDEC1B2AE48A0062E762 /* MainButton.swift */,
 			);
 			path = LionEventsExample;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			files = (
 				E0E6C04B1B215C0F0089A739 /* Model.swift in Sources */,
 				E0E6C02B1B2159E80089A739 /* ViewController.swift in Sources */,
+				E0EDBDED1B2AE48A0062E762 /* MainButton.swift in Sources */,
 				E0E6C0291B2159E80089A739 /* AppDelegate.swift in Sources */,
 				E036DFA51B256F2100C87077 /* ModelObject.swift in Sources */,
 				E0E6C04D1B215C180089A739 /* MainViewController.swift in Sources */,

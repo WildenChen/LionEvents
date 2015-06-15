@@ -11,13 +11,13 @@ public class EventDispatcher {
     public static var allEventDispatchers:[Int:EventDispatcher] = [Int:EventDispatcher]()
     
     private var mListeners:[String:[EventListener]] = [String:[EventListener]]()
-    public var currentTarget:Any?
+    //public var currentTarget:Any?
     
     public init(){
         
     }
     
-    public func addEventListener(aEventName:String, _ aHandler:()->Void) -> EventListener {
+    public func addEventListener(aEventName:String, _ aHandler:() -> Void) -> EventListener {
         let _newListener:EventListener = EventListener(aHandler: aHandler)
         var _newListeners:[EventListener] = (mListeners[aEventName] == nil) ? [] : mListeners[aEventName]!
         _newListeners.append(_newListener)
@@ -25,7 +25,7 @@ public class EventDispatcher {
         return _newListener
     }
     
-    public func addEventListener(aEventName:String, _ aHandler:(aEvent:LNEvent)->Void) -> EventListener {
+    public func addEventListener(aEventName:String, _ aHandler:(aEvent:Event) -> Void) -> EventListener {
         let _newListener:EventListener = EventListener(aHandler: aHandler)
         var _newListeners:[EventListener] = (mListeners[aEventName] == nil) ? [] : mListeners[aEventName]!
         _newListeners.append(_newListener)
@@ -61,17 +61,23 @@ public class EventDispatcher {
         }
     }
     
-    public func dispatchEvent(aEventName:String, _ aInformation:Any? = nil) -> Bool{
+    public func dispatchEvent(aEvent:Event) -> Bool {
         var _result:Bool = false
-        if let _listeners:[EventListener] = mListeners[aEventName]{
+        if let _listeners:[EventListener] = mListeners[aEvent.type]{
             for _listener in _listeners {
                 if let _handler:() -> Void = _listener.handler {
                     _handler()
                     _result = true
-                }else if let _handler:(aEvent:LNEvent) -> Void = _listener.eventHandler{
-                    let _currentTarget:Any = (self.currentTarget == nil) ? self : currentTarget!
-                    let _event:LNEvent = LNEvent(aTarget: self, aCurrentTarget: _currentTarget, aType: aEventName, aInformation: aInformation)
-                    _handler(aEvent: _event)
+                }else if let _handler:(aEvent:Event) -> Void = _listener.eventHandler{
+                    //let _currentTarget:Any = (self.currentTarget == nil) ? self : self.currentTarget!
+                    if aEvent.currentTarget == nil {
+                        aEvent.setCurrentTarget(self)
+                    }
+                    
+                    if aEvent.target == nil {
+                        aEvent.setTarget(self)
+                    }
+                    _handler(aEvent: aEvent)
                     _result = true
                 }
             }
@@ -90,31 +96,15 @@ public class EventDispatcher {
 
 public class EventListener:NSObject {
     public let handler:(() -> Void)?
-    public let eventHandler:((aEvent:LNEvent) -> ())?
+    public let eventHandler:((aEvent:Event) -> ())?
     
     public init(aHandler:() -> Void) {
         self.handler = aHandler
         self.eventHandler = nil
     }
     
-    public init(aHandler:(aEvent:LNEvent) -> Void) {
+    public init(aHandler:(aEvent:Event) -> Void) {
         self.handler = nil
         self.eventHandler = aHandler
-    }
-}
-
-public class LNEvent {
-    public let target:Any
-    public let currentTarget:Any
-    public let type:String
-    public var information:Any?
-    //let bubbles:Bool
-    //let cancelable:Bool
-    //let eventPhase:UInt
-    public init(aTarget:Any, aCurrentTarget:Any, aType:String, aInformation:Any? = nil){
-        target = aTarget
-        currentTarget = aCurrentTarget
-        type = aType
-        information = aInformation
     }
 }

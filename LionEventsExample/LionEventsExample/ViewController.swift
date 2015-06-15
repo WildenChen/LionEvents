@@ -11,11 +11,12 @@ import LionEvents
 class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.greenColor()
     }
     
     
     var mFirstButtonListener:EventListener?
-    let mButton:UIButton = UIButton(frame: CGRectMake(0, 0, 50, 30))
+    let mButton:LNButton = LNButton(frame: CGRectMake(0, 0, 50, 30))
     private func createMutilsEvents(){
         // if want to remove target listener handler
         mFirstButtonListener = mButton.addEventListener(LNButtonEvents.TOUCH_UP_INSIDE,onButtonFirstHandler)
@@ -34,18 +35,20 @@ class ViewController: UIViewController {
     
     
     
-    
+    deinit{
+        println("ViewController deinit")
+    }
     
     
     
     private func createUIKitEvent(){
-        let _button:UIButton = UIButton(frame: CGRectMake(0, 0, 50, 30))
+        let _button:LNButton = LNButton(frame: CGRectMake(0, 0, 50, 30))
         _button.addEventListener(LNButtonEvents.TOUCH_UP_INSIDE, onButtonHandler)
         _button.addEventListener(LNButtonEvents.TOUCH_UP_OUTSIDE, onButtonHandler)
         _button.addEventListener(LNButtonEvents.TOUCH_DOWN, onButtonHandler)
     }
     
-    private func onButtonHandler(e:LNEvent){
+    private func onButtonHandler(e:Event){
         switch e.type {
         case LNButtonEvents.TOUCH_DOWN.rawValue:
             println("\(e.type)")
@@ -57,7 +60,7 @@ class ViewController: UIViewController {
             break
         }
         let _dispatcher:EventDispatcher = e.target as! EventDispatcher
-        let _btn:UIButton = e.currentTarget as! UIButton
+        let _btn:LNButton = e.currentTarget as! LNButton
         
         // remove Listener by EventType
         _btn.removeEventListener(LNButtonEvents.TOUCH_DOWN)
@@ -93,7 +96,7 @@ class ViewController: UIViewController {
         _model.addEventListener(Model.DEC, onModelChangeHandler)
     }
     
-    private func onModelChangeHandler(aEvent:LNEvent){
+    private func onModelChangeHandler(aEvent:Event){
         let _target:Model = aEvent.target as! Model
         let _currentTarget:Model = aEvent.currentTarget as! Model
         println("\(aEvent.type),\(_target.index)")

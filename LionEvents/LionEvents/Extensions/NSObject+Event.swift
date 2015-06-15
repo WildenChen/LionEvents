@@ -15,20 +15,18 @@ extension NSObject {
             _newListener = _eventDispatcher.addEventListener(aEventName, aHandler)
         }else{
             let _eventDispatcher:EventDispatcher = EventDispatcher()
-            _eventDispatcher.currentTarget = self
             _newListener = _eventDispatcher.addEventListener(aEventName, aHandler)
             EventDispatcher.allEventDispatchers.updateValue(_eventDispatcher, forKey: self.hash)
         }
         return _newListener!
     }
     
-    public func addEventListener(aEventName:String, _ aHandler:(aEvent:LNEvent)->Void) -> EventListener{
+    public func addEventListener(aEventName:String, _ aHandler:(aEvent:Event)->Void) -> EventListener{
         var _newListener:EventListener?
         if let _eventDispatcher:EventDispatcher = EventDispatcher.allEventDispatchers[self.hash] {
             _newListener = _eventDispatcher.addEventListener(aEventName, aHandler)
         }else{
             let _eventDispatcher:EventDispatcher = EventDispatcher()
-            _eventDispatcher.currentTarget = self
             _newListener = _eventDispatcher.addEventListener(aEventName, aHandler)
             EventDispatcher.allEventDispatchers.updateValue(_eventDispatcher, forKey: self.hash)
         }
@@ -48,10 +46,22 @@ extension NSObject {
         }
     }
     
-    public func dispatchEvent(aEventName:String, _ aInformation:Any? = nil) -> Bool{
+    public func dispatchEvent(aEvent:Event) -> Bool {
         var _result:Bool = false
+        if aEvent.bubbles && self is UIView {
+            let _view:UIView = self as! UIView
+            //println("dispatchEvent:\(_view.frame.origin.x)")
+            if let _parent:UIView = _view.superview {
+                
+                if aEvent.target == nil {
+                    aEvent.setTarget(self)
+                }
+                _parent.dispatchEvent(aEvent)
+            }
+        }
         if let _eventDispatcher:EventDispatcher = EventDispatcher.allEventDispatchers[self.hash] {
-            _result = _eventDispatcher.dispatchEvent(aEventName, aInformation)
+            aEvent.setCurrentTarget(self)
+            _result = _eventDispatcher.dispatchEvent(aEvent)
         }
         return _result
     }

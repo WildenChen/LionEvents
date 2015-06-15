@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import LionEvents
 class ModelObject: NSObject {
     static let ADD:String = "model_add"
     static let DEC:String = "model_dec"
@@ -17,10 +17,12 @@ class ModelObject: NSObject {
         set(value){
             if value > mIndex {
                 mIndex = value
-                dispatchEvent(Model.ADD)
+                let _event:Event = Event(aType: Model.ADD, aBubbles: false)
+                dispatchEvent(_event)
             }else if value < mIndex {
                 mIndex = value
-                dispatchEvent(Model.DEC)
+                let _event:Event = Event(aType: Model.ADD, aBubbles: false)
+                dispatchEvent(_event)
             }
         }
         get{

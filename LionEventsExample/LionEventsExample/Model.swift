@@ -17,10 +17,12 @@ class Model:EventDispatcher {
         set(value){
             if value > mIndex {
                 mIndex = value
-                dispatchEvent(Model.ADD)
+                let _event:Event = Event(aType: Model.ADD, aBubbles: false)
+                dispatchEvent(_event)
             }else if value < mIndex {
                 mIndex = value
-                dispatchEvent(Model.DEC)
+                let _event:Event = Event(aType: Model.ADD, aBubbles: false)
+                dispatchEvent(_event)
             }
         }
         get{

@@ -12,10 +12,10 @@
 		E01F5AC91B21570C00D496F6 /* LionEventsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01F5AC81B21570C00D496F6 /* LionEventsTests.swift */; };
 		E01F5AD51B21574E00D496F6 /* EventDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01F5AD41B21574E00D496F6 /* EventDispatcher.swift */; };
 		E01F5AE11B21576100D496F6 /* NSObject+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01F5AD91B21576100D496F6 /* NSObject+Event.swift */; };
-		E01F5AE21B21576100D496F6 /* UIButton+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01F5ADA1B21576100D496F6 /* UIButton+Event.swift */; };
-		E01F5AE41B21576100D496F6 /* UISwitch+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01F5ADC1B21576100D496F6 /* UISwitch+Event.swift */; };
-		E01F5AE51B21576100D496F6 /* UITextField+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01F5ADD1B21576100D496F6 /* UITextField+Event.swift */; };
 		E085E76B1B267CDB0073B3E1 /* LionEvents.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E085E76A1B267CDB0073B3E1 /* LionEvents.podspec */; };
+		E09C23D51B28382D00026FB6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09C23D41B28382D00026FB6 /* Event.swift */; };
+		E0EBB1DC1B2ABC2300E02D5C /* LNButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EBB1DA1B2ABC2300E02D5C /* LNButton.swift */; };
+		E0EBB1DD1B2ABC2300E02D5C /* LNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EBB1DB1B2ABC2300E02D5C /* LNView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,10 +37,10 @@
 		E01F5AC81B21570C00D496F6 /* LionEventsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LionEventsTests.swift; sourceTree = "<group>"; };
 		E01F5AD41B21574E00D496F6 /* EventDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDispatcher.swift; sourceTree = "<group>"; };
 		E01F5AD91B21576100D496F6 /* NSObject+Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Event.swift"; sourceTree = "<group>"; };
-		E01F5ADA1B21576100D496F6 /* UIButton+Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Event.swift"; sourceTree = "<group>"; };
-		E01F5ADC1B21576100D496F6 /* UISwitch+Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISwitch+Event.swift"; sourceTree = "<group>"; };
-		E01F5ADD1B21576100D496F6 /* UITextField+Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Event.swift"; sourceTree = "<group>"; };
 		E085E76A1B267CDB0073B3E1 /* LionEvents.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LionEvents.podspec; path = /Users/wilden/Projects/Xcode/LionEvents/LionEventsExample/../LionEvents.podspec; sourceTree = "<absolute>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		E09C23D41B28382D00026FB6 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		E0EBB1DA1B2ABC2300E02D5C /* LNButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LNButton.swift; sourceTree = "<group>"; };
+		E0EBB1DB1B2ABC2300E02D5C /* LNView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LNView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				E085E76A1B267CDB0073B3E1 /* LionEvents.podspec */,
+				E0A8C9271B2ABC5000297AF2 /* LionKit */,
 				E01F5AB81B21570C00D496F6 /* LionEvents */,
 				E01F5AC51B21570C00D496F6 /* LionEventsTests */,
 				E01F5AB71B21570C00D496F6 /* Products */,
@@ -86,6 +87,7 @@
 			children = (
 				E01F5AD61B21576100D496F6 /* Extensions */,
 				E01F5AD41B21574E00D496F6 /* EventDispatcher.swift */,
+				E09C23D41B28382D00026FB6 /* Event.swift */,
 				E01F5ABB1B21570C00D496F6 /* LionEvents.h */,
 				E01F5AB91B21570C00D496F6 /* Supporting Files */,
 			);
@@ -121,11 +123,18 @@
 			isa = PBXGroup;
 			children = (
 				E01F5AD91B21576100D496F6 /* NSObject+Event.swift */,
-				E01F5ADA1B21576100D496F6 /* UIButton+Event.swift */,
-				E01F5ADC1B21576100D496F6 /* UISwitch+Event.swift */,
-				E01F5ADD1B21576100D496F6 /* UITextField+Event.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E0A8C9271B2ABC5000297AF2 /* LionKit */ = {
+			isa = PBXGroup;
+			children = (
+				E0EBB1DA1B2ABC2300E02D5C /* LNButton.swift */,
+				E0EBB1DB1B2ABC2300E02D5C /* LNView.swift */,
+			);
+			name = LionKit;
+			path = LionEvents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,11 +246,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0EBB1DD1B2ABC2300E02D5C /* LNView.swift in Sources */,
 				E01F5AE11B21576100D496F6 /* NSObject+Event.swift in Sources */,
-				E01F5AE41B21576100D496F6 /* UISwitch+Event.swift in Sources */,
 				E01F5AD51B21574E00D496F6 /* EventDispatcher.swift in Sources */,
-				E01F5AE21B21576100D496F6 /* UIButton+Event.swift in Sources */,
-				E01F5AE51B21576100D496F6 /* UITextField+Event.swift in Sources */,
+				E09C23D51B28382D00026FB6 /* Event.swift in Sources */,
+				E0EBB1DC1B2ABC2300E02D5C /* LNButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
