@@ -33,7 +33,7 @@ extension NSObject {
         return _newListener!
     }
     
-    public func removeEventListener(aEventName:String, aListener:EventListener){
+    public func removeEventListener(aEventName:String, _ aListener:EventListener){
         if let _eventDispatcher:EventDispatcher = EventDispatcher.allEventDispatchers[self.hash] {
             _eventDispatcher.removeEventListener(aEventName, aListener: aListener)
         }
@@ -42,7 +42,9 @@ extension NSObject {
     public func removeEventListener(aEventName:String?){
         if let _eventDispatcher:EventDispatcher = EventDispatcher.allEventDispatchers[self.hash] {
             _eventDispatcher.removeEventListener(aEventName)
-            EventDispatcher.allEventDispatchers.removeValueForKey(self.hash)
+            if !_eventDispatcher.hasEventListeners() {
+                EventDispatcher.allEventDispatchers.removeValueForKey(self.hash)
+            }
         }
     }
     
@@ -50,9 +52,7 @@ extension NSObject {
         var _result:Bool = false
         if aEvent.bubbles && self is UIView {
             let _view:UIView = self as! UIView
-            //println("dispatchEvent:\(_view.frame.origin.x)")
             if let _parent:UIView = _view.superview {
-                
                 if aEvent.target == nil {
                     aEvent.setTarget(self)
                 }

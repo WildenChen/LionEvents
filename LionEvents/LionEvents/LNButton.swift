@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import LionEvents
+//import LionEvents
 
 public typealias LNButtonEvents = LNTouchEvents
 
@@ -44,12 +44,14 @@ public class LNButton: UIButton {
     }
     
     override public func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        super.touchesBegan(touches, withEvent: event)
         let _touch:UITouch = touches.first! as! UITouch
         let _event:Event = Event(aType: LNButtonEvents.TOUCH_DOWN.rawValue, aBubbles: true)
         self.dispatchEvent(_event)
     }
     
     override public func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+        super.touchesEnded(touches, withEvent: event)
         let _touch:UITouch = touches.first! as! UITouch
         let _touchendPoint:CGPoint = _touch.locationInView(self)
         if _touchendPoint.x < 0 || _touchendPoint.x > self.bounds.width || _touchendPoint.y < 0 || _touchendPoint.y > self.bounds.height {
@@ -63,6 +65,7 @@ public class LNButton: UIButton {
     }
     
     override public func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+        super.touchesMoved(touches, withEvent: event)
         let _touch:UITouch = touches.first! as! UITouch
         let _touchendPoint:CGPoint = _touch.locationInView(self)
         let _event:Event = Event(aType: LNButtonEvents.TOUCH_MOVE.rawValue, aBubbles: true)
@@ -93,7 +96,7 @@ public class LNButton: UIButton {
     
     public func removeEventListener(aEventType:LNButtonEvents, aListener:EventListener){
         let _eventType:String = aEventType.rawValue
-        self.removeEventListener(_eventType, aListener: aListener)
+        self.removeEventListener(_eventType, aListener)
         if !hasEventListener(_eventType) {
             self.removeEventListener(_eventType)
         }

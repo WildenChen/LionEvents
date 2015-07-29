@@ -92,6 +92,11 @@ public class EventDispatcher {
         }
         return _result
     }
+    
+    func hasEventListeners() -> Bool {
+        var _result:Bool = false
+        return (mListeners.count > 0)
+    }
 }
 
 public class EventListener:NSObject {

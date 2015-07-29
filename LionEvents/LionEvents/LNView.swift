@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 Lion Infomation Technology Co.,Ltd. All rights reserved.
 //
 
-import LionEvents
+//import LionEvents
 
 public enum LNTouchEvents:String{
     case TOUCH_CANCEL       = "touch_canel"
@@ -40,7 +40,6 @@ public class LNView: UIView {
     
     public init(){
         super.init(frame: CGRectZero)
-        self.clipsToBounds = true
     }
     
     public override init(frame: CGRect) {
@@ -75,6 +74,7 @@ public class LNView: UIView {
         let _touchendPoint:CGPoint = _touch.locationInView(self)
         let _event:Event = Event(aType: LNButtonEvents.TOUCH_MOVE.rawValue, aBubbles: true)
         dispatchEvent(_event)
+        println("\(_event.type)")
         if _touchendPoint.x < 0 || _touchendPoint.x > self.bounds.width || _touchendPoint.y < 0 || _touchendPoint.y > self.bounds.height {
             self.touchInside = false
         }else{

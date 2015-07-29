@@ -9,6 +9,9 @@
 import Foundation
 
 public class Event:Printable {
+    public static let CHANGE:String = "event_change"
+    public static let COMPLETE:String = "event_complete"
+    public static let ERROR:String = "event_error"
     
     private var mTarget:Any?
     public var target:Any? {
@@ -65,11 +68,11 @@ public class Event:Printable {
         return "\(_stdlib_getDemangledTypeName(self)) type=\(mType) bubbles=\(mBubbles)"
     }
     
-    func setTarget(aTarget:Any){
+    public func setTarget(aTarget:Any){
         mTarget = aTarget
     }
     
-    func setCurrentTarget(aCurrentTarget:Any) {
+    public func setCurrentTarget(aCurrentTarget:Any) {
         mCurrentTarget = aCurrentTarget
     }
     
