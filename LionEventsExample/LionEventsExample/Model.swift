@@ -12,6 +12,10 @@ class Model:EventDispatcher {
     static let ADD:String = "model_add"
     static let DEC:String = "model_dec"
     
+    override init() {
+        
+    }
+    
     private var mIndex:Int = 0
     var index:Int{
         set(value){

@@ -12,6 +12,10 @@ public class EventDispatcher {
     
     private var mListeners:[String:[EventListener]] = [String:[EventListener]]()
     
+    public init(){
+        
+    }
+    
     public func addEventListener(aEventName:String, _ aHandler:() -> Void) -> EventListener {
         let _newListener:EventListener = EventListener(aHandler: aHandler)
         var _newListeners:[EventListener] = (mListeners[aEventName] == nil) ? [] : mListeners[aEventName]!
