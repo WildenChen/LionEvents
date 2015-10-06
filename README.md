@@ -11,7 +11,7 @@ LionEvents provide an event mechanism which is more efficient than NSNotificatio
 
 
 
-created for Swift 1.2 using Xcode 6.3.2.
+created for Swift 2.0 using Xcode 7.0.1.
 develop by Lion Information Technology Co.,Ltd.
 
 ## Features

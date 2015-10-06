@@ -10,7 +10,7 @@ LionEvents 是一個仿照 Adobe Flash Acrionscript 3.0 事件流機制的一個
 
 提供了一種比 NSNotification 還要快速的事件機制，而且更適合 自訂 UI 上的互動開發，更容易整合與架構程式碼。
 
-created for Swift 1.2 using Xcode 6.3.2.
+created for Swift 2.0 using Xcode 7.0.1.
 
 ## Features
 
