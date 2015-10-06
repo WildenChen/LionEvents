@@ -29,14 +29,14 @@ class ViewController: UIViewController {
     }
     
     private func onButtonAlwaysHandler(){
-        println("no removeListener")
+        print("no removeListener")
     }
     
     
     
     
     deinit{
-        println("ViewController deinit")
+        print("ViewController deinit")
     }
     
     
@@ -51,11 +51,11 @@ class ViewController: UIViewController {
     private func onButtonHandler(e:Event){
         switch e.type {
         case LNButtonEvents.TOUCH_DOWN.rawValue:
-            println("\(e.type)")
+            print("\(e.type)")
         case LNButtonEvents.TOUCH_UP_INSIDE.rawValue:
-            println("\(e.type)")
+            print("\(e.type)")
         case LNButtonEvents.TOUCH_UP_OUTSIDE.rawValue:
-            println("\(e.type)")
+            print("\(e.type)")
         default:
             break
         }
@@ -99,7 +99,7 @@ class ViewController: UIViewController {
     private func onModelChangeHandler(aEvent:Event){
         let _target:Model = aEvent.target as! Model
         let _currentTarget:Model = aEvent.currentTarget as! Model
-        println("\(aEvent.type),\(_target.index)")
+        print("\(aEvent.type),\(_target.index)")
         removeCustomEventObject(_target)
     }
     

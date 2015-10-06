@@ -46,13 +46,13 @@ class MainViewController: UIViewController {
         _mainButton.backgroundColor = UIColor.redColor()
         _mainButton.frame = CGRectMake(10, 90, self.view.frame.width - 20, 100)
         _mainButton.addEventListener(LNTouchEvents.TOUCH_UP_INSIDE, { (aEvent:Event) -> Void in
-            println("\(aEvent.type)")
+            print("\(aEvent.type)")
             if let _target:LNView = aEvent.target as? LNView {
-                println("target:\(_target.frame.origin.x)")
+                print("target:\(_target.frame.origin.x)")
             }
             
             if let _currentTarget:UIView = aEvent.currentTarget as? UIView {
-                println("currentTarget:\(_currentTarget.frame.origin.x)")
+                print("currentTarget:\(_currentTarget.frame.origin.x)")
             }
         })
         self.view.addSubview(_mainButton)

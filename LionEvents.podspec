@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name        = "LionEvents"
-    spec.version     = "0.9.2"
+    spec.version     = "0.9.3"
     spec.summary     = "Event Flow framework for iOS."
     spec.homepage    = "https://github.com/WildenChen/LionEvents"
     spec.license     = { :type => "BSD" }
@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
     
     spec.requires_arc = true
     #    spec.osx.deployment_target = "10.9"
-    spec.ios.deployment_target = "8.1"
+    spec.ios.deployment_target = "8.0"
     spec.source   = { :git => "https://github.com/WildenChen/LionEvents.git", :tag => "#{spec.version}"}
     spec.source_files = "LionEvents/LionEvents/*","LionEvents/LionEvents/Extensions/*"
 end

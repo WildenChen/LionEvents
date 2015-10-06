@@ -11,11 +11,6 @@ public class EventDispatcher {
     public static var allEventDispatchers:[Int:EventDispatcher] = [Int:EventDispatcher]()
     
     private var mListeners:[String:[EventListener]] = [String:[EventListener]]()
-    //public var currentTarget:Any?
-    
-    public init(){
-        
-    }
     
     public func addEventListener(aEventName:String, _ aHandler:() -> Void) -> EventListener {
         let _newListener:EventListener = EventListener(aHandler: aHandler)
@@ -36,12 +31,11 @@ public class EventDispatcher {
     public func removeEventListener(aEventName:String, aListener:EventListener){
         if let _listeners:[EventListener] = mListeners[aEventName] {
             var _nowListeners:[EventListener] = _listeners
-            //if let _index:Int = _nowListeners.indexOf(aListener){
-            if let _index:Int = find(_nowListeners, aListener){
+            if let _index:Int = _nowListeners.indexOf(aListener){
                 _nowListeners.removeAtIndex(_index)
             }
             
-            if _nowListeners.count == 0 {   //!hasEventListener(aEventName)
+            if _nowListeners.count == 0 {
                 mListeners.removeValueForKey(aEventName)
             }else{
                 mListeners.updateValue(_nowListeners, forKey: aEventName)
@@ -69,7 +63,6 @@ public class EventDispatcher {
                     _handler()
                     _result = true
                 }else if let _handler:(aEvent:Event) -> Void = _listener.eventHandler{
-                    //let _currentTarget:Any = (self.currentTarget == nil) ? self : self.currentTarget!
                     if aEvent.currentTarget == nil {
                         aEvent.setCurrentTarget(self)
                     }
@@ -94,7 +87,6 @@ public class EventDispatcher {
     }
     
     func hasEventListeners() -> Bool {
-        var _result:Bool = false
         return (mListeners.count > 0)
     }
 }

@@ -8,10 +8,10 @@
 
 import Foundation
 
-public class Event:Printable {
-    public static let CHANGE:String = "event_change"
-    public static let COMPLETE:String = "event_complete"
-    public static let ERROR:String = "event_error"
+public class Event:CustomStringConvertible {
+    public static let CHANGE    :String = "event_change"
+    public static let COMPLETE  :String = "event_complete"
+    public static let ERROR     :String = "event_error"
     
     private var mTarget:Any?
     public var target:Any? {
@@ -43,11 +43,6 @@ public class Event:Printable {
         return mStopsImmediatePropagation
     }
     
-    
-    public var description:String {
-        return self.toString()
-    }
-    
     public var information:Any?
     
     public init(aType:String,aBubbles:Bool = true) {
@@ -76,5 +71,7 @@ public class Event:Printable {
         mCurrentTarget = aCurrentTarget
     }
     
-    
+    public var description:String {
+        return self.toString()
+    }
 }
