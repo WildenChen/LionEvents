@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 Lion Infomation Technology Co.,Ltd. All rights reserved.
 //
 
-//import LionEvents
+import UIKit
 
 public enum LNTouchEvents:String{
     case TOUCH_CANCEL       = "touch_canel"

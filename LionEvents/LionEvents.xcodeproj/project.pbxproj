@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E01249541C5C93D20084D71C /* LionEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = E01F5ABB1B21570C00D496F6 /* LionEvents.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E01249581C5C953E0084D71C /* LNButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EBB1DA1B2ABC2300E02D5C /* LNButton.swift */; };
+		E01249591C5C953E0084D71C /* LNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EBB1DB1B2ABC2300E02D5C /* LNView.swift */; };
+		E012495A1C5C953E0084D71C /* NSObject+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01F5AD91B21576100D496F6 /* NSObject+Event.swift */; };
+		E012495B1C5C953E0084D71C /* EventDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01F5AD41B21574E00D496F6 /* EventDispatcher.swift */; };
+		E012495C1C5C953E0084D71C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09C23D41B28382D00026FB6 /* Event.swift */; };
 		E01F5ABC1B21570C00D496F6 /* LionEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = E01F5ABB1B21570C00D496F6 /* LionEvents.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E01F5AC21B21570C00D496F6 /* LionEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E01F5AB61B21570C00D496F6 /* LionEvents.framework */; };
 		E01F5AC91B21570C00D496F6 /* LionEventsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01F5AC81B21570C00D496F6 /* LionEventsTests.swift */; };
 		E01F5AD51B21574E00D496F6 /* EventDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01F5AD41B21574E00D496F6 /* EventDispatcher.swift */; };
 		E01F5AE11B21576100D496F6 /* NSObject+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01F5AD91B21576100D496F6 /* NSObject+Event.swift */; };
@@ -29,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E012494B1C5C8FD10084D71C /* LionEvents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LionEvents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E012494F1C5C8FD10084D71C /* tvOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "tvOS-Info.plist"; path = "LionEvents_tvOS/tvOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		E01F5AB61B21570C00D496F6 /* LionEvents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LionEvents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E01F5ABA1B21570C00D496F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E01F5ABB1B21570C00D496F6 /* LionEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LionEvents.h; sourceTree = "<group>"; };
@@ -44,6 +51,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E01249471C5C8FD10084D71C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E01F5AB21B21570C00D496F6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -55,7 +69,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E01F5AC21B21570C00D496F6 /* LionEvents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +91,7 @@
 			children = (
 				E01F5AB61B21570C00D496F6 /* LionEvents.framework */,
 				E01F5AC11B21570C00D496F6 /* LionEventsTests.xctest */,
+				E012494B1C5C8FD10084D71C /* LionEvents.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,6 +111,7 @@
 		E01F5AB91B21570C00D496F6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E012494F1C5C8FD10084D71C /* tvOS-Info.plist */,
 				E01F5ABA1B21570C00D496F6 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -140,6 +155,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		E01249481C5C8FD10084D71C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E01249541C5C93D20084D71C /* LionEvents.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E01F5AB31B21570C00D496F6 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -151,6 +174,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		E012494A1C5C8FD10084D71C /* LionEvents_tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E01249501C5C8FD10084D71C /* Build configuration list for PBXNativeTarget "LionEvents_tvOS" */;
+			buildPhases = (
+				E01249461C5C8FD10084D71C /* Sources */,
+				E01249471C5C8FD10084D71C /* Frameworks */,
+				E01249481C5C8FD10084D71C /* Headers */,
+				E01249491C5C8FD10084D71C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LionEvents_tvOS;
+			productName = LionEvents_tvOS;
+			productReference = E012494B1C5C8FD10084D71C /* LionEvents.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		E01F5AB51B21570C00D496F6 /* LionEvents */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E01F5ACC1B21570C00D496F6 /* Build configuration list for PBXNativeTarget "LionEvents" */;
@@ -195,9 +236,12 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Lion Infomation Technology Co.,Ltd.";
 				TargetAttributes = {
+					E012494A1C5C8FD10084D71C = {
+						CreatedOnToolsVersion = 7.2;
+					};
 					E01F5AB51B21570C00D496F6 = {
 						CreatedOnToolsVersion = 6.3.2;
 					};
@@ -220,11 +264,19 @@
 			targets = (
 				E01F5AB51B21570C00D496F6 /* LionEvents */,
 				E01F5AC01B21570C00D496F6 /* LionEventsTests */,
+				E012494A1C5C8FD10084D71C /* LionEvents_tvOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E01249491C5C8FD10084D71C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E01F5AB41B21570C00D496F6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -243,6 +295,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E01249461C5C8FD10084D71C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E01249581C5C953E0084D71C /* LNButton.swift in Sources */,
+				E01249591C5C953E0084D71C /* LNView.swift in Sources */,
+				E012495A1C5C953E0084D71C /* NSObject+Event.swift in Sources */,
+				E012495B1C5C953E0084D71C /* EventDispatcher.swift in Sources */,
+				E012495C1C5C953E0084D71C /* Event.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E01F5AB11B21570C00D496F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -274,6 +338,45 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		E01249511C5C8FD10084D71C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/LionEvents_tvOS/tvOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tw.com.liontech.LionEvents;
+				PRODUCT_NAME = LionEvents;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		E01249521C5C8FD10084D71C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/LionEvents_tvOS/tvOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tw.com.liontech.LionEvents;
+				PRODUCT_NAME = LionEvents;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
 		E01F5ACA1B21570C00D496F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -296,6 +399,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -311,7 +415,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -353,7 +457,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -366,6 +470,7 @@
 		E01F5ACD1B21570C00D496F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -375,16 +480,19 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tw.com.liontech.LionEvents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
 		E01F5ACE1B21570C00D496F6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -394,9 +502,11 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tw.com.liontech.LionEvents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
@@ -413,6 +523,7 @@
 				);
 				INFOPLIST_FILE = LionEventsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.liontech.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -426,6 +537,7 @@
 				);
 				INFOPLIST_FILE = LionEventsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.liontech.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -433,6 +545,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E01249501C5C8FD10084D71C /* Build configuration list for PBXNativeTarget "LionEvents_tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E01249511C5C8FD10084D71C /* Debug */,
+				E01249521C5C8FD10084D71C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		E01F5AB01B21570C00D496F6 /* Build configuration list for PBXProject "LionEvents" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

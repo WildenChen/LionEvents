@@ -13,12 +13,12 @@ public class Event:CustomStringConvertible {
     public static let COMPLETE  :String = "event_complete"
     public static let ERROR     :String = "event_error"
     
-    private var mTarget:Any?
+    private weak var mTarget:AnyObject?
     public var target:Any? {
         return mTarget
     }
     
-    private var mCurrentTarget:Any?
+    private weak var mCurrentTarget:AnyObject?
     public var currentTarget:Any? {
         return mCurrentTarget
     }
@@ -43,7 +43,7 @@ public class Event:CustomStringConvertible {
         return mStopsImmediatePropagation
     }
     
-    public var information:Any?
+    public weak var information:AnyObject?
     
     public init(aType:String,aBubbles:Bool = true) {
         mType = aType
@@ -63,11 +63,11 @@ public class Event:CustomStringConvertible {
         return "\(_stdlib_getDemangledTypeName(self)) type=\(mType) bubbles=\(mBubbles)"
     }
     
-    public func setTarget(aTarget:Any){
+    public func setTarget(aTarget:AnyObject){
         mTarget = aTarget
     }
     
-    public func setCurrentTarget(aCurrentTarget:Any) {
+    public func setCurrentTarget(aCurrentTarget:AnyObject) {
         mCurrentTarget = aCurrentTarget
     }
     

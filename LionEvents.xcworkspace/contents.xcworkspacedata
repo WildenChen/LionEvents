@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:TVOSDemo/TVOSDemo.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:LionEventsExample/LionEventsExample.xcodeproj">
    </FileRef>
    <FileRef

@@ -5,7 +5,7 @@
 //  Created by wilden on 2015/6/1.
 //  Copyright (c) 2015年 Lion Infomation Technology Co.,Ltd. Wilden. All rights reserved.
 //
-
+import UIKit
 import Foundation
 
 extension NSObject {
