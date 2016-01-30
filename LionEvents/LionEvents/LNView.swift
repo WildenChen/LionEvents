@@ -51,11 +51,13 @@ public class LNView: UIView {
     }
     
     override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesBegan(touches, withEvent: event)
         let _event:Event = Event(aType: LNButtonEvents.TOUCH_DOWN.rawValue, aBubbles: true)
         self.dispatchEvent(_event)
     }
     
     override public func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesEnded(touches, withEvent: event)
         let _touch:UITouch = touches.first! 
         let _touchendPoint:CGPoint = _touch.locationInView(self)
         if _touchendPoint.x < 0 || _touchendPoint.x > self.bounds.width || _touchendPoint.y < 0 || _touchendPoint.y > self.bounds.height {
@@ -69,7 +71,8 @@ public class LNView: UIView {
     }
     
     override public func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let _touch:UITouch = touches.first! 
+        super.touchesMoved(touches, withEvent: event)
+        let _touch:UITouch = touches.first!
         let _touchendPoint:CGPoint = _touch.locationInView(self)
         let _event:Event = Event(aType: LNButtonEvents.TOUCH_MOVE.rawValue, aBubbles: true)
         dispatchEvent(_event)
@@ -82,6 +85,8 @@ public class LNView: UIView {
     }
     
     override public func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+        super.touchesCancelled(touches, withEvent: event)
+        
         let _event:Event = Event(aType: LNButtonEvents.TOUCH_CANCEL.rawValue, aBubbles: true)
         dispatchEvent(_event)
     }

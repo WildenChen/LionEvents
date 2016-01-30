@@ -74,4 +74,10 @@ public class Event:CustomStringConvertible {
     public var description:String {
         return self.toString()
     }
+    
+    deinit{
+        mTarget = nil
+        mCurrentTarget = nil
+        information = nil
+    }
 }
