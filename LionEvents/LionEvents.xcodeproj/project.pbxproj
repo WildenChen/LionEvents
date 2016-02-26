@@ -17,7 +17,6 @@
 		E01F5AC91B21570C00D496F6 /* LionEventsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01F5AC81B21570C00D496F6 /* LionEventsTests.swift */; };
 		E01F5AD51B21574E00D496F6 /* EventDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01F5AD41B21574E00D496F6 /* EventDispatcher.swift */; };
 		E01F5AE11B21576100D496F6 /* NSObject+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01F5AD91B21576100D496F6 /* NSObject+Event.swift */; };
-		E085E76B1B267CDB0073B3E1 /* LionEvents.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E085E76A1B267CDB0073B3E1 /* LionEvents.podspec */; };
 		E09C23D51B28382D00026FB6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09C23D41B28382D00026FB6 /* Event.swift */; };
 		E0EBB1DC1B2ABC2300E02D5C /* LNButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EBB1DA1B2ABC2300E02D5C /* LNButton.swift */; };
 		E0EBB1DD1B2ABC2300E02D5C /* LNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EBB1DB1B2ABC2300E02D5C /* LNView.swift */; };
@@ -281,7 +280,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E085E76B1B267CDB0073B3E1 /* LionEvents.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +550,7 @@
 				E01249521C5C8FD10084D71C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E01F5AB01B21570C00D496F6 /* Build configuration list for PBXProject "LionEvents" */ = {
 			isa = XCConfigurationList;
