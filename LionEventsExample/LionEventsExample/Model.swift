@@ -22,10 +22,18 @@ class Model:EventDispatcher {
             if value > mIndex {
                 mIndex = value
                 let _event:Event = Event(aType: Model.ADD, aBubbles: false)
+                //var _dic:[String:Int] = [String:Int]()
+                //_dic["index"] = mIndex
+                let _vo = ModelVO(aName: "hihi",aID: "\(mIndex)")
+                _event.information = _vo
                 dispatchEvent(_event)
             }else if value < mIndex {
                 mIndex = value
                 let _event:Event = Event(aType: Model.ADD, aBubbles: false)
+                //var _dic:[String:Int] = [String:Int]()
+                //_dic["index"] = mIndex
+                let _vo = ModelVO(aName: "ddd",aID: "\(mIndex)")
+                _event.information = _vo
                 dispatchEvent(_event)
             }
         }
@@ -34,4 +42,17 @@ class Model:EventDispatcher {
         }
     }
     
+    deinit{
+        print("Model.deinit")
+    }
+    
+}
+
+class ModelVO {
+    var name:String
+    var id:String
+    init(aName:String,aID:String){
+        self.name = aName
+        self.id = aID
+    }
 }

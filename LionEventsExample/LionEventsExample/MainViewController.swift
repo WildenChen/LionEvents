@@ -11,7 +11,7 @@ import LionEvents
 class MainViewController: UIViewController {
     private var mAddbutton:LNButton = LNButton()
     private var mDecbutton:LNButton = LNButton()
-    private var mModel:Model = Model()
+    private var mModel:Model? = Model()
     private var mResultLabel:UILabel = UILabel()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,27 +34,18 @@ class MainViewController: UIViewController {
         self.view.addSubview(mDecbutton)
         
         mResultLabel.frame = CGRectMake(_boardWidth, mAddbutton.frame.origin.y - 40.0, self.view.frame.width - _boardWidth * 2.0, 40.0)
-        mResultLabel.text = "\(mModel.index)"
+        mResultLabel.text = "\(mModel!.index)"
         mResultLabel.textAlignment = NSTextAlignment.Center
         self.view.addSubview(mResultLabel)
         
-        mModel.addEventListener(Model.ADD, onModelChangeHandler)
-        mModel.addEventListener(Model.DEC, onModelChangeHandler)
+        mModel?.addEventListener(Model.ADD, onModelChangeHandler)
+        mModel?.addEventListener(Model.DEC, onModelChangeHandler)
         
         
         let _mainButton:MainButton = MainButton()
         _mainButton.backgroundColor = UIColor.redColor()
         _mainButton.frame = CGRectMake(10, 90, self.view.frame.width - 20, 100)
-        _mainButton.addEventListener(LNTouchEvents.TOUCH_UP_INSIDE, { (aEvent:Event) -> Void in
-            print("\(aEvent.type)")
-            if let _target:LNView = aEvent.target as? LNView {
-                print("target:\(_target.frame.origin.x)")
-            }
-            
-            if let _currentTarget:UIView = aEvent.currentTarget as? UIView {
-                print("currentTarget:\(_currentTarget.frame.origin.x)")
-            }
-        })
+        _mainButton.addEventListener(LNTouchEvents.TOUCH_UP_INSIDE, onMainButtonHandler)
         self.view.addSubview(_mainButton)
         
         let _sceondButton:LNView = LNView()
@@ -70,16 +61,23 @@ class MainViewController: UIViewController {
         
     }
     
-    private func onModelChangeHandler(){
-        mResultLabel.text = "\(mModel.index)"
+    private func onModelChangeHandler(e:Event){
+        mResultLabel.text = "\(mModel!.index)"
+        let _vo:ModelVO? = e.information as? ModelVO
+        print("e:\(_vo)")
+        
+        //mModel?.removeEventListener(Model.ADD)
+        //mModel?.removeEventListener(Model.DEC)
+        
+        mModel = nil
     }
     
     private func onAddDecButtonHandler(aEvent:Event){
         let _currentTarget:UIButton = aEvent.currentTarget as! UIButton
         if _currentTarget == mAddbutton {
-            mModel.index++
+            mModel?.index++
         }else if _currentTarget == mDecbutton{
-            mModel.index--
+            mModel?.index--
         }
     }
     
@@ -88,6 +86,19 @@ class MainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    private func onMainButtonHandler(e:Event){
+        print("\(e.type)")
+        if let _target:LNView = e.target as? LNView {
+            print("target:\(_target.frame.origin.x)")
+        }
+        
+        if let _currentTarget:UIView = e.currentTarget as? UIView {
+            print("currentTarget:\(_currentTarget.frame.origin.x)")
+            _currentTarget.removeEventListener(LNTouchEvents.TOUCH_UP_INSIDE.rawValue)
+            _currentTarget.removeFromSuperview()
+        }
+        
+    }
     /*
     // MARK: - Navigation
     

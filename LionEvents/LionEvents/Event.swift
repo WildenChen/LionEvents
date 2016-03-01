@@ -43,7 +43,7 @@ public class Event:CustomStringConvertible {
         return mStopsImmediatePropagation
     }
     
-    public weak var information:AnyObject?
+    public var information:Any?
     
     public init(aType:String,aBubbles:Bool = true) {
         mType = aType
@@ -76,6 +76,7 @@ public class Event:CustomStringConvertible {
     }
     
     deinit{
+        //print("event deinit")
         mTarget = nil
         mCurrentTarget = nil
         information = nil

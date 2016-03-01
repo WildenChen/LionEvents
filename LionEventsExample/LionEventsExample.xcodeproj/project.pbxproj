@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E0124B421C8596D100C9584C /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = E0124B411C8596D100C9584C /* Cartfile */; };
 		E036DFA51B256F2100C87077 /* ModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E036DFA41B256F2100C87077 /* ModelObject.swift */; };
 		E0E6C0291B2159E80089A739 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C0281B2159E80089A739 /* AppDelegate.swift */; };
 		E0E6C02B1B2159E80089A739 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C02A1B2159E80089A739 /* ViewController.swift */; };
 		E0E6C0301B2159E80089A739 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0E6C02F1B2159E80089A739 /* Images.xcassets */; };
 		E0E6C03F1B2159E90089A739 /* LionEventsExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C03E1B2159E90089A739 /* LionEventsExampleTests.swift */; };
-		E0E6C0491B215BDC0089A739 /* LionEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0E6C0481B215BDC0089A739 /* LionEvents.framework */; };
 		E0E6C04B1B215C0F0089A739 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C04A1B215C0F0089A739 /* Model.swift */; };
 		E0E6C04D1B215C180089A739 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C04C1B215C180089A739 /* MainViewController.swift */; };
 		E0EDBDED1B2AE48A0062E762 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EDBDEC1B2AE48A0062E762 /* MainButton.swift */; };
@@ -29,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E0124B411C8596D100C9584C /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E036DFA41B256F2100C87077 /* ModelObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelObject.swift; sourceTree = "<group>"; };
 		E0E6C0231B2159E80089A739 /* LionEventsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LionEventsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0E6C0271B2159E80089A739 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,7 +50,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0E6C0491B215BDC0089A739 /* LionEvents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +66,7 @@
 		E0E6C01A1B2159E80089A739 = {
 			isa = PBXGroup;
 			children = (
+				E0124B411C8596D100C9584C /* Cartfile */,
 				E0E6C0251B2159E80089A739 /* LionEventsExample */,
 				E0E6C03B1B2159E90089A739 /* LionEventsExampleTests */,
 				E0E6C0241B2159E80089A739 /* Products */,
@@ -204,6 +205,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0124B421C8596D100C9584C /* Cartfile in Resources */,
 				E0E6C0301B2159E80089A739 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +342,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/wilden/Projects/Xcode/LionEvents/LionEvents/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = LionEventsExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -356,6 +359,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/wilden/Projects/Xcode/LionEvents/LionEvents/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = LionEventsExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

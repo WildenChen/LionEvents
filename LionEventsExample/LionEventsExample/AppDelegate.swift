@@ -12,10 +12,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private var mWindow: UIWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         mWindow.rootViewController = UINavigationController(rootViewController: MainViewController())
         mWindow.makeKeyAndVisible()
+        
         return true
     }
 

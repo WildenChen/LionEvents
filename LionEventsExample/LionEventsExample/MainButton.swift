@@ -22,5 +22,7 @@ class MainButton: LNView {
         
     }
 
-
+    deinit{
+        print("MainButton.deinit")
+    }
 }
