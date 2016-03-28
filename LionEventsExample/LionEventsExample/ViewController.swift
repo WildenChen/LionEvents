@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         default:
             break
         }
-        let _dispatcher:EventDispatcher = e.target as! EventDispatcher
+        //let _dispatcher:EventDispatcher = e.target as! EventDispatcher
         let _btn:LNButton = e.currentTarget as! LNButton
         
         // remove Listener by EventType
@@ -99,7 +99,7 @@ class ViewController: UIViewController {
     private func onModelChangeHandler(aEvent:Event){
         let _target:Model = aEvent.target as! Model
         let _currentTarget:Model = aEvent.currentTarget as! Model
-        print("\(aEvent.type),\(_target.index)")
+        print("\(aEvent.type),\(_target.index)","\(_currentTarget)")
         removeCustomEventObject(_target)
     }
     

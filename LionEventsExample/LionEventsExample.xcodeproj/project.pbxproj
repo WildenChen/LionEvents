@@ -16,6 +16,7 @@
 		E0E6C04B1B215C0F0089A739 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C04A1B215C0F0089A739 /* Model.swift */; };
 		E0E6C04D1B215C180089A739 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6C04C1B215C180089A739 /* MainViewController.swift */; };
 		E0EDBDED1B2AE48A0062E762 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EDBDEC1B2AE48A0062E762 /* MainButton.swift */; };
+		E0FC3D171CA8CD14000A5580 /* LionEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0FC3D161CA8CD14000A5580 /* LionEvents.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,10 +40,10 @@
 		E0E6C0381B2159E90089A739 /* LionEventsExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LionEventsExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0E6C03D1B2159E90089A739 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0E6C03E1B2159E90089A739 /* LionEventsExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LionEventsExampleTests.swift; sourceTree = "<group>"; };
-		E0E6C0481B215BDC0089A739 /* LionEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LionEvents.framework; path = "../../LionEvents/build/Debug-iphoneos/LionEvents.framework"; sourceTree = "<group>"; };
 		E0E6C04A1B215C0F0089A739 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E0E6C04C1B215C180089A739 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E0EDBDEC1B2AE48A0062E762 /* MainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
+		E0FC3D161CA8CD14000A5580 /* LionEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LionEvents.framework; path = "../../../../Library/Developer/Xcode/DerivedData/LionEvents-flxjgqftgtsnkygehgwdsezfslzm/Build/Products/Debug-iphonesimulator/LionEvents.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0FC3D171CA8CD14000A5580 /* LionEvents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +68,7 @@
 		E0E6C01A1B2159E80089A739 = {
 			isa = PBXGroup;
 			children = (
+				E0FC3D161CA8CD14000A5580 /* LionEvents.framework */,
 				E0124B411C8596D100C9584C /* Cartfile */,
 				E0E6C0251B2159E80089A739 /* LionEventsExample */,
 				E0E6C03B1B2159E90089A739 /* LionEventsExampleTests */,
@@ -100,7 +103,6 @@
 		E0E6C0261B2159E80089A739 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E0E6C0481B215BDC0089A739 /* LionEvents.framework */,
 				E0E6C0271B2159E80089A739 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -345,6 +347,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = LionEventsExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.liontech.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -362,6 +365,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = LionEventsExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.liontech.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

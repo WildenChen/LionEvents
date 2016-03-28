@@ -75,9 +75,9 @@ class MainViewController: UIViewController {
     private func onAddDecButtonHandler(aEvent:Event){
         let _currentTarget:UIButton = aEvent.currentTarget as! UIButton
         if _currentTarget == mAddbutton {
-            mModel?.index++
+            mModel?.index = mModel!.index + 1
         }else if _currentTarget == mDecbutton{
-            mModel?.index--
+            mModel?.index = mModel!.index - 1
         }
     }
     

@@ -60,7 +60,7 @@ public class Event:CustomStringConvertible {
     }
     
     public func toString() -> String {
-        return "\(_stdlib_getDemangledTypeName(self)) type=\(mType) bubbles=\(mBubbles)"
+        return "\(self.className) type=\(mType) bubbles=\(mBubbles)"
     }
     
     public func setTarget(aTarget:AnyObject){
@@ -73,6 +73,10 @@ public class Event:CustomStringConvertible {
     
     public var description:String {
         return self.toString()
+    }
+    
+    var className:String {
+        return NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last! as String
     }
     
     deinit{
