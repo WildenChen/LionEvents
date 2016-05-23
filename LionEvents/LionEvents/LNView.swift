@@ -62,10 +62,10 @@ public class LNView: UIView {
         let _touchendPoint:CGPoint = _touch.locationInView(self)
         if _touchendPoint.x < 0 || _touchendPoint.x > self.bounds.width || _touchendPoint.y < 0 || _touchendPoint.y > self.bounds.height {
             let _event:Event = Event(aType: LNButtonEvents.TOUCH_UP_OUTSIDE.rawValue, aBubbles: true)
-            dispatchEvent(_event)
+            self.dispatchEvent(_event)
         }else {
             let _event:Event = Event(aType: LNButtonEvents.TOUCH_UP_INSIDE.rawValue, aBubbles: true)
-            dispatchEvent(_event)
+            self.dispatchEvent(_event)
         }
         
     }
@@ -75,7 +75,7 @@ public class LNView: UIView {
         let _touch:UITouch = touches.first!
         let _touchendPoint:CGPoint = _touch.locationInView(self)
         let _event:Event = Event(aType: LNButtonEvents.TOUCH_MOVE.rawValue, aBubbles: true)
-        dispatchEvent(_event)
+        self.dispatchEvent(_event)
         // print("\(_event.type)")
         if _touchendPoint.x < 0 || _touchendPoint.x > self.bounds.width || _touchendPoint.y < 0 || _touchendPoint.y > self.bounds.height {
             self.touchInside = false

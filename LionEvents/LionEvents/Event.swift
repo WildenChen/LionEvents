@@ -9,9 +9,9 @@
 import Foundation
 
 public class Event:CustomStringConvertible {
-    public static let CHANGE    :String = "event_change"
-    public static let COMPLETE  :String = "event_complete"
-    public static let ERROR     :String = "event_error"
+    //public static let CHANGE    :String = "event_change"
+    //public static let COMPLETE  :String = "event_complete"
+    //public static let ERROR     :String = "event_error"
     
     private weak var mTarget:AnyObject?
     public var target:Any? {
@@ -60,7 +60,7 @@ public class Event:CustomStringConvertible {
     }
     
     public func toString() -> String {
-        return "\(self.className) type=\(mType) bubbles=\(mBubbles)"
+        return "\(self.dynamicType) type=\(mType) bubbles=\(mBubbles)"
     }
     
     public func setTarget(aTarget:AnyObject){
@@ -75,9 +75,9 @@ public class Event:CustomStringConvertible {
         return self.toString()
     }
     
-    var className:String {
-        return NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last! as String
-    }
+//    var className:String {
+//        return NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last! as String
+//    }
     
     deinit{
         //print("event deinit")

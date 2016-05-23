@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  LionEventsExample
 //
-//  Created by wilden on 2015/6/5.
-//  Copyright (c) 2015年 Lion Infomation Technology Co.,Ltd. All rights reserved.
+//  Created by wilden on 2016/5/23.
+//  Copyright © 2016年 Lion Infomation Technology Co.,Ltd. All rights reserved.
 //
 
 import UIKit
@@ -11,8 +11,8 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    //var window: UIWindow?
     private var mWindow: UIWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
-    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         mWindow.rootViewController = UINavigationController(rootViewController: MainViewController())
         mWindow.makeKeyAndVisible()

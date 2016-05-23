@@ -11,8 +11,10 @@ import LionEvents
 class MainViewController: UIViewController {
     private var mAddbutton:LNButton = LNButton()
     private var mDecbutton:LNButton = LNButton()
+    
     private var mModel:Model? = Model()
     private var mResultLabel:UILabel = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
@@ -59,6 +61,14 @@ class MainViewController: UIViewController {
         _sceondButton.addSubview(_tButton)
         
         
+        
+        //var _eventHandler:(aEvent:Event) -> () = onAddDecButtonHandler
+        //_eventHandler()
+        //var _handlers:[(aEvent:Event) -> ()] = [(aEvent:Event) -> ()]()
+//        _handlers.append(onAddDecButtonHandler)
+//        _handlers.append(onModelChangeHandler)
+        
+        
     }
     
     private func onModelChangeHandler(e:Event){
@@ -69,7 +79,7 @@ class MainViewController: UIViewController {
         //mModel?.removeEventListener(Model.ADD)
         //mModel?.removeEventListener(Model.DEC)
         
-        mModel = nil
+        //mModel = nil
     }
     
     private func onAddDecButtonHandler(aEvent:Event){
@@ -87,7 +97,7 @@ class MainViewController: UIViewController {
     }
     
     private func onMainButtonHandler(e:Event){
-        print("\(e.type)")
+        print("e:Type = \(e.type)")
         if let _target:LNView = e.target as? LNView {
             print("target:\(_target.frame.origin.x)")
         }
@@ -99,14 +109,5 @@ class MainViewController: UIViewController {
         }
         
     }
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
     
 }

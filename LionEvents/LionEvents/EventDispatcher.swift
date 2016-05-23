@@ -1,6 +1,6 @@
 //
 //  EventDispatcher.swift
-//  SwiftSimpleProject
+//  LionEvents
 //
 //  Created by wilden on 2015/6/4.
 //  Copyright (c) 2015年 Lion Infomation Technology Co.,Ltd. Wilden. All rights reserved.
@@ -8,12 +8,13 @@
 
 import Foundation
 public class EventDispatcher {
-    public static var allEventDispatchers:[Int:EventDispatcher] = [Int:EventDispatcher]()
-    
-    private var mListeners:[String:[EventListener]] = [String:[EventListener]]()
+    private var mListeners:[String:[EventListener]]
+    public var listener:[String:[EventListener]]{
+        return mListeners
+    }
     
     public init(){
-        
+        mListeners = [String:[EventListener]]()
     }
     
     deinit{
@@ -22,7 +23,7 @@ public class EventDispatcher {
     
     public func addEventListener(aEventName:String, _ aHandler:() -> Void) -> EventListener {
         let _newListener:EventListener = EventListener(aHandler: aHandler)
-        var _newListeners:[EventListener] = (mListeners[aEventName] == nil) ? [] : mListeners[aEventName]!
+        var _newListeners:[EventListener] = (mListeners[aEventName] == nil) ? [EventListener]() : mListeners[aEventName]!
         _newListeners.append(_newListener)
         mListeners.updateValue(_newListeners, forKey: aEventName)
         return _newListener
@@ -30,7 +31,7 @@ public class EventDispatcher {
     
     public func addEventListener(aEventName:String, _ aHandler:(aEvent:Event) -> Void) -> EventListener {
         let _newListener:EventListener = EventListener(aHandler: aHandler)
-        var _newListeners:[EventListener] = (mListeners[aEventName] == nil) ? [] : mListeners[aEventName]!
+        var _newListeners:[EventListener] = (mListeners[aEventName] == nil) ? [EventListener]() : mListeners[aEventName]!
         _newListeners.append(_newListener)
         mListeners.updateValue(_newListeners, forKey: aEventName)
         return _newListener
@@ -96,20 +97,5 @@ public class EventDispatcher {
     
     func hasEventListeners() -> Bool {
         return (mListeners.count > 0)
-    }
-}
-
-public class EventListener:NSObject {
-    public let handler:(() -> Void)?
-    public let eventHandler:((aEvent:Event) -> ())?
-    
-    public init(aHandler:() -> Void) {
-        self.handler = aHandler
-        self.eventHandler = nil
-    }
-    
-    public init(aHandler:(aEvent:Event) -> Void) {
-        self.handler = nil
-        self.eventHandler = aHandler
     }
 }
