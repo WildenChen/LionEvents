@@ -18,9 +18,9 @@ public enum LNTouchEvents:String{
     case TOUCH_ROLL_OUT     = "touch_roll_out"
 }
 
-public class LNView: UIView {
+open class LNView: UIView {
     private var mIsTouchInside:Bool = true
-    public var touchInside:Bool{
+    open var touchInside:Bool{
         set(value){
             if mIsTouchInside != value {
                 mIsTouchInside = value
@@ -39,7 +39,7 @@ public class LNView: UIView {
     }
     
     public init(){
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
     }
     
     public override init(frame: CGRect) {
@@ -50,16 +50,16 @@ public class LNView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesBegan(touches, withEvent: event)
+    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         let _event:Event = Event(aType: LNButtonEvents.TOUCH_DOWN.rawValue, aBubbles: true)
         self.dispatchEvent(_event)
     }
     
-    override public func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesEnded(touches, withEvent: event)
+    override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
         let _touch:UITouch = touches.first! 
-        let _touchendPoint:CGPoint = _touch.locationInView(self)
+        let _touchendPoint:CGPoint = _touch.location(in: self)
         if _touchendPoint.x < 0 || _touchendPoint.x > self.bounds.width || _touchendPoint.y < 0 || _touchendPoint.y > self.bounds.height {
             let _event:Event = Event(aType: LNButtonEvents.TOUCH_UP_OUTSIDE.rawValue, aBubbles: true)
             self.dispatchEvent(_event)
@@ -70,10 +70,10 @@ public class LNView: UIView {
         
     }
     
-    override public func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesMoved(touches, withEvent: event)
+    override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
         let _touch:UITouch = touches.first!
-        let _touchendPoint:CGPoint = _touch.locationInView(self)
+        let _touchendPoint:CGPoint = _touch.location(in: self)
         let _event:Event = Event(aType: LNButtonEvents.TOUCH_MOVE.rawValue, aBubbles: true)
         self.dispatchEvent(_event)
         // print("\(_event.type)")
@@ -84,19 +84,21 @@ public class LNView: UIView {
         }
     }
     
-    override public func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
-        super.touchesCancelled(touches, withEvent: event)
+    override open func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
         
         let _event:Event = Event(aType: LNButtonEvents.TOUCH_CANCEL.rawValue, aBubbles: true)
         dispatchEvent(_event)
     }
     
-    public func addEventListener(aEventType: LNButtonEvents, _ aHandler: () -> Void) -> EventListener {
-        return self.addEventListener(aEventType.rawValue, aHandler)
+    open func addTEventListener(_ aEventType: LNButtonEvents, _ aHandler:@escaping () -> Void) -> EventListener {
+        let _eventType:String = aEventType.rawValue
+        return self.addEventListener(_eventType, aHandler)
     }
     
-    public func addEventListener(aEventType: LNButtonEvents, _ aHandler: (aEvent: Event) -> Void) -> EventListener {
-        return self.addEventListener(aEventType.rawValue, aHandler)
+    open func addTEventListener(_ aEventType: LNButtonEvents, _ aHandler:@escaping (_ aEvent: Event) -> Void) -> EventListener {
+        let _eventType:String = aEventType.rawValue
+        return self.addEventListener(_eventType, aHandler)
     }
     
 }

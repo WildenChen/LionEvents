@@ -6,17 +6,17 @@
 //  Copyright © 2016年 Lion Infomation Technology Co.,Ltd. All rights reserved.
 //
 
-public class EventListener:NSObject {
-    public let handler:(() -> Void)?
-    public let eventHandler:((aEvent:Event) -> ())?
+open class EventListener:NSObject {
+    open let handler:(() -> Void)?
+    open let eventHandler:((_ aEvent:Event) -> ())?
     
-    public init(aHandler:() -> Void) {
+    public init(aHandler:@escaping () -> Void) {
         self.handler = aHandler
         self.eventHandler = nil
         super.init()
     }
     
-    public init(aHandler:(aEvent:Event) -> Void) {
+    public init(aHandler:@escaping (_ aEvent:Event) -> Void) {
         self.handler = nil
         self.eventHandler = aHandler
         super.init()

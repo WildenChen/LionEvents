@@ -8,28 +8,28 @@
 
 import Foundation
 
-public class Event:CustomStringConvertible {
+open class Event:CustomStringConvertible {
     //public static let CHANGE    :String = "event_change"
     //public static let COMPLETE  :String = "event_complete"
     //public static let ERROR     :String = "event_error"
     
     private weak var mTarget:AnyObject?
-    public var target:Any? {
+    open var target:Any? {
         return mTarget
     }
     
     private weak var mCurrentTarget:AnyObject?
-    public var currentTarget:Any? {
+    open var currentTarget:Any? {
         return mCurrentTarget
     }
     
     private var mType:String
-    public var type:String {
+    open var type:String {
         return mType
     }
     
     private var mBubbles:Bool
-    public var bubbles:Bool {
+    open var bubbles:Bool {
         return mBubbles
     }
     
@@ -43,35 +43,35 @@ public class Event:CustomStringConvertible {
         return mStopsImmediatePropagation
     }
     
-    public var information:Any?
+    open var information:Any?
     
     public init(aType:String,aBubbles:Bool = true) {
         mType = aType
         mBubbles = aBubbles
     }
     
-    public func stopPropagation() {
+    open func stopPropagation() {
         mStopsPropagation = true
     }
     
-    public func stopImmediatePropagation() {
+    open func stopImmediatePropagation() {
         mStopsImmediatePropagation = true
         mStopsPropagation = true
     }
     
-    public func toString() -> String {
-        return "\(self.dynamicType) type=\(mType) bubbles=\(mBubbles)"
+    open func toString() -> String {
+        return "\(type(of: self)) type=\(mType) bubbles=\(mBubbles)"
     }
     
-    public func setTarget(aTarget:AnyObject){
+    open func setTarget(_ aTarget:AnyObject){
         mTarget = aTarget
     }
     
-    public func setCurrentTarget(aCurrentTarget:AnyObject) {
+    open func setCurrentTarget(_ aCurrentTarget:AnyObject) {
         mCurrentTarget = aCurrentTarget
     }
     
-    public var description:String {
+    open var description:String {
         return self.toString()
     }
     

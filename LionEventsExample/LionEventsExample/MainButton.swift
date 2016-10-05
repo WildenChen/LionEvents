@@ -10,14 +10,14 @@ import UIKit
 import LionEvents
 class MainButton: LNView {
 
-    private var mTitle:UILabel = UILabel()
+    fileprivate var mTitle:UILabel = UILabel()
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        mTitle.frame = CGRectMake(0, 0, rect.width, 20.0)
-        mTitle.textColor = UIColor.whiteColor()
+    override func draw(_ rect: CGRect) {
+        mTitle.frame = CGRect(x: 0, y: 0, width: rect.width, height: 20.0)
+        mTitle.textColor = UIColor.white
         mTitle.text = "AAAAAAA"
-        mTitle.textAlignment = NSTextAlignment.Right
+        mTitle.textAlignment = NSTextAlignment.right
         self.addSubview(mTitle)
         
     }

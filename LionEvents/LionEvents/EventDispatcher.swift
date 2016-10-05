@@ -7,9 +7,9 @@
 //
 
 import Foundation
-public class EventDispatcher {
+open class EventDispatcher {
     private var mListeners:[String:[EventListener]]
-    public var listener:[String:[EventListener]]{
+    open var listener:[String:[EventListener]]{
         return mListeners
     }
     
@@ -21,7 +21,7 @@ public class EventDispatcher {
         mListeners.removeAll()
     }
     
-    public func addEventListener(aEventName:String, _ aHandler:() -> Void) -> EventListener {
+    @discardableResult public func addEventListener(_ aEventName:String, _ aHandler:@escaping () -> Void) -> EventListener {
         let _newListener:EventListener = EventListener(aHandler: aHandler)
         var _newListeners:[EventListener] = (mListeners[aEventName] == nil) ? [EventListener]() : mListeners[aEventName]!
         _newListeners.append(_newListener)
@@ -29,7 +29,7 @@ public class EventDispatcher {
         return _newListener
     }
     
-    public func addEventListener(aEventName:String, _ aHandler:(aEvent:Event) -> Void) -> EventListener {
+    @discardableResult public func addEventListener(_ aEventName:String, _ aHandler:@escaping (_ aEvent:Event) -> Void) -> EventListener {
         let _newListener:EventListener = EventListener(aHandler: aHandler)
         var _newListeners:[EventListener] = (mListeners[aEventName] == nil) ? [EventListener]() : mListeners[aEventName]!
         _newListeners.append(_newListener)
@@ -37,41 +37,41 @@ public class EventDispatcher {
         return _newListener
     }
     
-    public func removeEventListener(aEventName:String, aListener:EventListener){
+    public func removeEventListener(_ aEventName:String, aListener:EventListener){
         if let _listeners:[EventListener] = mListeners[aEventName] {
             var _nowListeners:[EventListener] = _listeners
-            if let _index:Int = _nowListeners.indexOf(aListener){
-                _nowListeners.removeAtIndex(_index)
+            if let _index:Int = _nowListeners.index(of: aListener){
+                _nowListeners.remove(at: _index)
             }
             
             if _nowListeners.count == 0 {
-                mListeners.removeValueForKey(aEventName)
+                mListeners.removeValue(forKey: aEventName)
             }else{
                 mListeners.updateValue(_nowListeners, forKey: aEventName)
             }
         }
     }
     
-    public func removeEventListener(aEventName:String?){
+    public func removeEventListener(_ aEventName:String?){
         if aEventName == nil {
-            mListeners.removeAll(keepCapacity: false)
+            mListeners.removeAll(keepingCapacity: false)
         }else{
             if let _listeners:[EventListener] = mListeners[aEventName!] {
                 var _newListeners:[EventListener] = _listeners
-                _newListeners.removeAll(keepCapacity: false)
+                _newListeners.removeAll(keepingCapacity: false)
             }
-            mListeners.removeValueForKey(aEventName!)
+            mListeners.removeValue(forKey: aEventName!)
         }
     }
     
-    public func dispatchEvent(aEvent:Event) -> Bool {
+    @discardableResult public func dispatchEvent(_ aEvent:Event) -> Bool {
         var _result:Bool = false
         if let _listeners:[EventListener] = mListeners[aEvent.type]{
             for _listener in _listeners {
                 if let _handler:() -> Void = _listener.handler {
                     _handler()
                     _result = true
-                }else if let _handler:(aEvent:Event) -> Void = _listener.eventHandler{
+                }else if let _handler:(_ aEvent:Event) -> Void = _listener.eventHandler{
                     if aEvent.currentTarget == nil {
                         aEvent.setCurrentTarget(self)
                     }
@@ -79,7 +79,7 @@ public class EventDispatcher {
                     if aEvent.target == nil {
                         aEvent.setTarget(self)
                     }
-                    _handler(aEvent: aEvent)
+                    _handler(aEvent)
                     _result = true
                 }
             }
@@ -87,7 +87,7 @@ public class EventDispatcher {
         return _result
     }
     
-    public func hasEventListener(aEventName:String) -> Bool {
+    public func hasEventListener(_ aEventName:String) -> Bool {
         var _result:Bool = false
         if let _listeners:[EventListener] = mListeners[aEventName] {
             _result = (_listeners.count != 0) ? true : false

@@ -10,9 +10,9 @@ import UIKit
 
 public typealias LNButtonEvents = LNTouchEvents
 
-public class LNButton: UIButton {
+open class LNButton: UIButton {
     private var mIsTouchInside:Bool = true
-    override public var touchInside:Bool{
+    override open var isTouchInside:Bool{
         set(value){
             if mIsTouchInside != value {
                 mIsTouchInside = value
@@ -31,7 +31,7 @@ public class LNButton: UIButton {
     }
     
     public init(){
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
     }
     
     public override init(frame: CGRect) {
@@ -42,16 +42,16 @@ public class LNButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesBegan(touches, withEvent: event)
+    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         let _event:Event = Event(aType: LNButtonEvents.TOUCH_DOWN.rawValue, aBubbles: true)
         self.dispatchEvent(_event)
     }
     
-    override public func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesEnded(touches, withEvent: event)
+    override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
         let _touch:UITouch = touches.first! 
-        let _touchendPoint:CGPoint = _touch.locationInView(self)
+        let _touchendPoint:CGPoint = _touch.location(in: self)
         if _touchendPoint.x < 0 || _touchendPoint.x > self.bounds.width || _touchendPoint.y < 0 || _touchendPoint.y > self.bounds.height {
             let _event:Event = Event(aType: LNButtonEvents.TOUCH_UP_OUTSIDE.rawValue, aBubbles: true)
             dispatchEvent(_event)
@@ -62,38 +62,38 @@ public class LNButton: UIButton {
         
     }
     
-    override public func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesMoved(touches, withEvent: event)
+    override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
         let _touch:UITouch = touches.first! 
-        let _touchendPoint:CGPoint = _touch.locationInView(self)
+        let _touchendPoint:CGPoint = _touch.location(in: self)
         let _event:Event = Event(aType: LNButtonEvents.TOUCH_MOVE.rawValue, aBubbles: true)
         dispatchEvent(_event)
         if _touchendPoint.x < 0 || _touchendPoint.x > self.bounds.width || _touchendPoint.y < 0 || _touchendPoint.y > self.bounds.height {
-            self.touchInside = false
+            self.isTouchInside = false
         }else{
-            self.touchInside = true
+            self.isTouchInside = true
         }
     }
     
-    override public func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
-        super.touchesCancelled(touches, withEvent: event)
+    override open func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
         let _event:Event = Event(aType: LNButtonEvents.TOUCH_CANCEL.rawValue, aBubbles: true)
         dispatchEvent(_event)
     }
     
-    public func addEventListener(aEventType: LNButtonEvents, _ aHandler: () -> Void) -> EventListener {
+    open func addEventListener(_ aEventType: LNButtonEvents, _ aHandler:@escaping () -> Void) -> EventListener {
         return self.addEventListener(aEventType.rawValue, aHandler)
     }
     
-    public func addEventListener(aEventType: LNButtonEvents, _ aHandler: (aEvent: Event) -> Void) -> EventListener {
+    open func addEventListener(_ aEventType: LNButtonEvents, _ aHandler:@escaping (_ aEvent: Event) -> Void) -> EventListener {
         return self.addEventListener(aEventType.rawValue, aHandler)
     }
     
-    public func removeEventListener(aEventType: LNButtonEvents){
+    open func removeEventListener(_ aEventType: LNButtonEvents){
         self.removeEventListener(aEventType.rawValue)
     }
     
-    public func removeEventListener(aEventType:LNButtonEvents, aListener:EventListener){
+    open func removeEventListener(_ aEventType:LNButtonEvents, aListener:EventListener){
         let _eventType:String = aEventType.rawValue
         self.removeEventListener(_eventType, aListener)
         if !hasEventListener(_eventType) {
@@ -101,7 +101,7 @@ public class LNButton: UIButton {
         }
     }
     
-    public func removeAllEventListener(){
+    open func removeAllEventListener(){
         self.removeEventListener(nil)
     }
 }

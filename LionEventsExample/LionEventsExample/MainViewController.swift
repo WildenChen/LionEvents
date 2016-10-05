@@ -9,55 +9,57 @@
 import UIKit
 import LionEvents
 class MainViewController: UIViewController {
-    private var mAddbutton:LNButton = LNButton()
-    private var mDecbutton:LNButton = LNButton()
+    fileprivate var mAddbutton:LNButton = LNButton()
+    fileprivate var mDecbutton:LNButton = LNButton()
     
-    private var mModel:Model? = Model()
-    private var mResultLabel:UILabel = UILabel()
+    fileprivate var mModel:Model? = Model()
+    fileprivate var mResultLabel:UILabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
         
         let _boardWidth:CGFloat = 10.0
         let _buttonHeight:CGFloat = 60.0
         let _buttonWidth:CGFloat = (self.view.frame.width - _boardWidth * 3.0) / 2.0
         
-        mAddbutton.frame = CGRectMake(_boardWidth, self.view.frame.height - _boardWidth - _buttonHeight, _buttonWidth, _buttonHeight)
+        mAddbutton.frame = CGRect(x: _boardWidth, y: self.view.frame.height - _boardWidth - _buttonHeight, width: _buttonWidth, height: _buttonHeight)
         mAddbutton.addEventListener(LNButtonEvents.TOUCH_UP_INSIDE, onAddDecButtonHandler)
-        mAddbutton.backgroundColor = UIColor.redColor()
-        mAddbutton.setTitle("+1", forState: UIControlState.Normal)
+        mAddbutton.backgroundColor = UIColor.red
+        mAddbutton.setTitle("+1", for: UIControlState.normal)
         self.view.addSubview(mAddbutton)
         
-        mDecbutton.frame = CGRectMake(_boardWidth * 2.0 + _buttonWidth, self.view.frame.height - _boardWidth - _buttonHeight, _buttonWidth, _buttonHeight)
+        mDecbutton.frame = CGRect(x: _boardWidth * 2.0 + _buttonWidth, y: self.view.frame.height - _boardWidth - _buttonHeight, width: _buttonWidth, height: _buttonHeight)
         mDecbutton.addEventListener(LNButtonEvents.TOUCH_UP_INSIDE, onAddDecButtonHandler)
-        mDecbutton.backgroundColor = UIColor.redColor()
-        mDecbutton.setTitle("-1", forState: UIControlState.Normal)
+        mDecbutton.backgroundColor = UIColor.red
+        mDecbutton.setTitle("-1", for: UIControlState.normal)
         self.view.addSubview(mDecbutton)
         
-        mResultLabel.frame = CGRectMake(_boardWidth, mAddbutton.frame.origin.y - 40.0, self.view.frame.width - _boardWidth * 2.0, 40.0)
+        mResultLabel.frame = CGRect(x: _boardWidth, y: mAddbutton.frame.origin.y - 40.0, width: self.view.frame.width - _boardWidth * 2.0, height: 40.0)
         mResultLabel.text = "\(mModel!.index)"
-        mResultLabel.textAlignment = NSTextAlignment.Center
+        mResultLabel.textAlignment = NSTextAlignment.center
         self.view.addSubview(mResultLabel)
+        
+        //mModel?.addEventListener(addEventListener
         
         mModel?.addEventListener(Model.ADD, onModelChangeHandler)
         mModel?.addEventListener(Model.DEC, onModelChangeHandler)
         
         
         let _mainButton:MainButton = MainButton()
-        _mainButton.backgroundColor = UIColor.redColor()
-        _mainButton.frame = CGRectMake(10, 90, self.view.frame.width - 20, 100)
-        _mainButton.addEventListener(LNTouchEvents.TOUCH_UP_INSIDE, onMainButtonHandler)
+        _mainButton.backgroundColor = UIColor.red
+        _mainButton.frame = CGRect(x: 10, y: 90, width: self.view.frame.width - 20, height: 100)
+        //_mainButton.addEventListener(LNTouchEvents.TOUCH_UP_INSIDE, onMainButtonHandler)
         self.view.addSubview(_mainButton)
         
         let _sceondButton:LNView = LNView()
-        _sceondButton.backgroundColor = UIColor.yellowColor()
-        _sceondButton.frame = CGRectMake(20, 20, _mainButton.frame.width - 40, _mainButton.frame.height - 40)
+        _sceondButton.backgroundColor = UIColor.yellow
+        _sceondButton.frame = CGRect(x: 20, y: 20, width: _mainButton.frame.width - 40, height: _mainButton.frame.height - 40)
         _mainButton.addSubview(_sceondButton)
         
         let _tButton:LNView = LNView()
-        _tButton.backgroundColor = UIColor.greenColor()
-        _tButton.frame = CGRectMake(30, 50, _sceondButton.frame.width - 40, _sceondButton.frame.height - 30)
+        _tButton.backgroundColor = UIColor.green
+        _tButton.frame = CGRect(x: 30, y: 50, width: _sceondButton.frame.width - 40, height: _sceondButton.frame.height - 30)
         _sceondButton.addSubview(_tButton)
         
         
@@ -71,7 +73,9 @@ class MainViewController: UIViewController {
         
     }
     
-    private func onModelChangeHandler(e:Event){
+    private func onModelChangeHandler(_ e:Event){
+        print("onModelChangeHandler")
+        
         mResultLabel.text = "\(mModel!.index)"
         let _vo:ModelVO? = e.information as? ModelVO
         print("e:\(_vo)")
@@ -82,7 +86,7 @@ class MainViewController: UIViewController {
         //mModel = nil
     }
     
-    private func onAddDecButtonHandler(aEvent:Event){
+    fileprivate func onAddDecButtonHandler(_ aEvent:Event){
         let _currentTarget:UIButton = aEvent.currentTarget as! UIButton
         if _currentTarget == mAddbutton {
             mModel?.index = mModel!.index + 1
@@ -96,7 +100,7 @@ class MainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func onMainButtonHandler(e:Event){
+    fileprivate func onMainButtonHandler(_ e:Event){
         print("e:Type = \(e.type)")
         if let _target:LNView = e.target as? LNView {
             print("target:\(_target.frame.origin.x)")
