@@ -20,13 +20,13 @@
 		E06685D51CF2B8E70056BCDB /* LionEvents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LionEvents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06685D81CF2B8E70056BCDB /* LionEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LionEvents.h; sourceTree = "<group>"; };
 		E06685DA1CF2B8E70056BCDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E06685E01CF2B9260056BCDB /* LionEvents.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = LionEvents.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E06685E11CF2B96D0056BCDB /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		E06685E21CF2B96D0056BCDB /* EventDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDispatcher.swift; sourceTree = "<group>"; };
 		E06685E31CF2B96D0056BCDB /* EventListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListener.swift; sourceTree = "<group>"; };
 		E06685E41CF2B96D0056BCDB /* LNButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LNButton.swift; sourceTree = "<group>"; };
 		E06685E51CF2B96D0056BCDB /* LNView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LNView.swift; sourceTree = "<group>"; };
 		E06685EB1CF2B9770056BCDB /* NSObject+Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Event.swift"; sourceTree = "<group>"; };
+		E0710F671DA4F46800953524 /* LionEvents.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = LionEvents.podspec; path = ../LionEvents.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +43,7 @@
 		E06685CB1CF2B8E70056BCDB = {
 			isa = PBXGroup;
 			children = (
-				E06685E01CF2B9260056BCDB /* LionEvents.podspec */,
+				E0710F671DA4F46800953524 /* LionEvents.podspec */,
 				E06685D71CF2B8E70056BCDB /* LionEvents */,
 				E06685D61CF2B8E70056BCDB /* Products */,
 			);
