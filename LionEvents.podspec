@@ -12,5 +12,5 @@ Pod::Spec.new do |spec|
     spec.ios.deployment_target = "8.0"
     spec.tvos.deployment_target = "9.0"
     spec.source   = { :git => "https://github.com/WildenChen/LionEvents.git", :tag => "#{spec.version}"}
-    spec.source_files = "LionEvents/LionEvents/*","LionEvents/LionEvents/Extensions/*"
+    spec.source_files = "LionEvents/LionEvents/*"
 end
