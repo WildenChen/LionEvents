@@ -91,12 +91,12 @@ open class LNView: UIView {
         dispatchEvent(_event)
     }
     
-    open func addTEventListener(_ aEventType: LNButtonEvents, _ aHandler:@escaping () -> Void) -> EventListener {
+    @discardableResult open func addTEventListener(_ aEventType: LNButtonEvents, _ aHandler:@escaping () -> Void) -> EventListener {
         let _eventType:String = aEventType.rawValue
         return self.addEventListener(_eventType, aHandler)
     }
     
-    open func addTEventListener(_ aEventType: LNButtonEvents, _ aHandler:@escaping (_ aEvent: Event) -> Void) -> EventListener {
+    @discardableResult open func addTEventListener(_ aEventType: LNButtonEvents, _ aHandler:@escaping (_ aEvent: Event) -> Void) -> EventListener {
         let _eventType:String = aEventType.rawValue
         return self.addEventListener(_eventType, aHandler)
     }

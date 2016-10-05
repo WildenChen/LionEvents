@@ -11,7 +11,7 @@ import Foundation
 public extension NSObject {
     public static var allEventDispatchers:[Int:EventDispatcher] = [Int:EventDispatcher]()
     
-    open func addEventListener(_ aEventName:String, _ aHandler:@escaping ()->Void) -> EventListener{
+    @discardableResult public func addEventListener(_ aEventName:String, _ aHandler:@escaping ()->Void) -> EventListener{
         var _newListener:EventListener?
         if let _eventDispatcher:EventDispatcher = NSObject.allEventDispatchers[self.hash] {
             _newListener = _eventDispatcher.addEventListener(aEventName, aHandler)
@@ -23,7 +23,7 @@ public extension NSObject {
         return _newListener!
     }
     
-    open func addEventListener(_ aEventName:String, _ aHandler:@escaping (_ aEvent:Event)->Void) -> EventListener{
+    @discardableResult public func addEventListener(_ aEventName:String, _ aHandler:@escaping (_ aEvent:Event)->Void) -> EventListener{
         var _newListener:EventListener?
         if let _eventDispatcher:EventDispatcher = NSObject.allEventDispatchers[self.hash] {
             _newListener = _eventDispatcher.addEventListener(aEventName, aHandler)
@@ -35,13 +35,13 @@ public extension NSObject {
         return _newListener!
     }
     
-    open func removeEventListener(_ aEventName:String, _ aListener:EventListener){
+    public func removeEventListener(_ aEventName:String, _ aListener:EventListener){
         if let _eventDispatcher:EventDispatcher = NSObject.allEventDispatchers[self.hash] {
             _eventDispatcher.removeEventListener(aEventName, aListener: aListener)
         }
     }
     
-    open func removeEventListener(_ aEventName:String?){
+    public func removeEventListener(_ aEventName:String?){
         if let _eventDispatcher:EventDispatcher = NSObject.allEventDispatchers[self.hash] {
             _eventDispatcher.removeEventListener(aEventName)
             if !_eventDispatcher.hasEventListeners() {
@@ -50,7 +50,7 @@ public extension NSObject {
         }
     }
     
-    open func dispatchEvent(_ aEvent:Event) -> Bool {
+    @discardableResult public func dispatchEvent(_ aEvent:Event) -> Bool {
         var _result:Bool = false
         if aEvent.bubbles && self is UIView {
             let _view:UIView = self as! UIView
@@ -68,7 +68,7 @@ public extension NSObject {
         return _result
     }
     
-    open func hasEventListener(_ aEventName:String) -> Bool {
+    public func hasEventListener(_ aEventName:String) -> Bool {
         var _result:Bool = false
         if let _eventDispatcher:EventDispatcher = NSObject.allEventDispatchers[self.hash] {
             _result = _eventDispatcher.hasEventListener(aEventName)

@@ -81,11 +81,11 @@ open class LNButton: UIButton {
         dispatchEvent(_event)
     }
     
-    open func addEventListener(_ aEventType: LNButtonEvents, _ aHandler:@escaping () -> Void) -> EventListener {
+    @discardableResult open func addEventListener(_ aEventType: LNButtonEvents, _ aHandler:@escaping () -> Void) -> EventListener {
         return self.addEventListener(aEventType.rawValue, aHandler)
     }
     
-    open func addEventListener(_ aEventType: LNButtonEvents, _ aHandler:@escaping (_ aEvent: Event) -> Void) -> EventListener {
+    @discardableResult open func addEventListener(_ aEventType: LNButtonEvents, _ aHandler:@escaping (_ aEvent: Event) -> Void) -> EventListener {
         return self.addEventListener(aEventType.rawValue, aHandler)
     }
     
