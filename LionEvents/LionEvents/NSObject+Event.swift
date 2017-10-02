@@ -11,7 +11,7 @@ import Foundation
 public extension NSObject {
     public static var allEventDispatchers:[Int:EventDispatcher] = [Int:EventDispatcher]()
     
-    @discardableResult public func addEventListener(_ aEventName:String, _ aHandler:@escaping ()->Void) -> EventListener{
+    @objc @discardableResult public func addEventListener(_ aEventName:String, _ aHandler:@escaping ()->Void) -> EventListener{
         var _newListener:EventListener?
         if let _eventDispatcher:EventDispatcher = NSObject.allEventDispatchers[self.hash] {
             _newListener = _eventDispatcher.addEventListener(aEventName, aHandler)
@@ -35,13 +35,13 @@ public extension NSObject {
         return _newListener!
     }
     
-    public func removeEventListener(_ aEventName:String, _ aListener:EventListener){
+    @objc public func removeEventListener(_ aEventName:String, _ aListener:EventListener){
         if let _eventDispatcher:EventDispatcher = NSObject.allEventDispatchers[self.hash] {
             _eventDispatcher.removeEventListener(aEventName, aListener: aListener)
         }
     }
     
-    public func removeEventListener(_ aEventName:String?){
+    @objc public func removeEventListener(_ aEventName:String?){
         if let _eventDispatcher:EventDispatcher = NSObject.allEventDispatchers[self.hash] {
             _eventDispatcher.removeEventListener(aEventName)
             if !_eventDispatcher.hasEventListeners() {
@@ -68,7 +68,7 @@ public extension NSObject {
         return _result
     }
     
-    public func hasEventListener(_ aEventName:String) -> Bool {
+    @objc public func hasEventListener(_ aEventName:String) -> Bool {
         var _result:Bool = false
         if let _eventDispatcher:EventDispatcher = NSObject.allEventDispatchers[self.hash] {
             _result = _eventDispatcher.hasEventListener(aEventName)

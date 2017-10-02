@@ -101,7 +101,7 @@ open class LNButton: UIButton {
         }
     }
     
-    open func removeAllEventListener(){
+    @objc open func removeAllEventListener(){
         self.removeEventListener(nil)
     }
 }
