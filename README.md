@@ -33,7 +33,17 @@ drag <LionEvents> folder to your project.
 
 pod:
 ```ruby
-pod 'LionEvents', :git => 'https://github.com/wilden0424/LionEvents.git'
+pod 'LionEvents', '0.10.0'
+```
+
+Swift 4 Project：
+```
+drag <LionEvents> folder to your project.
+```
+
+pod:
+```ruby
+pod 'LionEvents', '0.10.1'
 ```
 
 ## Usage

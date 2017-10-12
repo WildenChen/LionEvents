@@ -24,7 +24,7 @@ created for Swift 2.0 using Xcode 7.0.1.
 - 可以對一個實體做多個事件函數註冊，也可以對一個實體對一個事件作多個函數註冊，執行完全正常。
 
 ## Installation
-iOS 7 Project：
+Swift 3 Project：
 ```
 直接把<LionEvents>資料夾放到專案裡即可。
 ```
@@ -32,7 +32,22 @@ iOS 7 Project：
 pod:
 
 ```ruby
-pod 'LionEvents'
+pod 'LionEvents', '0.10.0'
+```
+
+```ruby
+pod 'LionEvents', :git => 'https://github.com/wilden0424/LionEvents.git'
+```
+
+Swift 3 Project：
+```
+直接把<LionEvents>資料夾放到專案裡即可。
+```
+
+pod:
+
+```ruby
+pod 'LionEvents', '0.10.1'
 ```
 
 ```ruby

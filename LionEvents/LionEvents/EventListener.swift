@@ -7,10 +7,10 @@
 //
 
 open class EventListener:NSObject {
-    open let handler:(() -> Void)?
+    @objc open let handler:(() -> Void)?
     open let eventHandler:((_ aEvent:Event) -> ())?
     
-    public init(aHandler:@escaping () -> Void) {
+    @objc public init(aHandler:@escaping () -> Void) {
         self.handler = aHandler
         self.eventHandler = nil
         super.init()

@@ -60,7 +60,7 @@ open class Event:CustomStringConvertible {
     }
     
     open func toString() -> String {
-        return "\(type(of: self)) type=\(mType) bubbles=\(mBubbles)"
+        return "\(Swift.type(of: self)) type=\(mType) bubbles=\(mBubbles)"
     }
     
     open func setTarget(_ aTarget:AnyObject){
