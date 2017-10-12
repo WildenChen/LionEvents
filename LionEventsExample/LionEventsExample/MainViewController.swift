@@ -78,7 +78,7 @@ class MainViewController: UIViewController {
         
         mResultLabel.text = "\(mModel!.index)"
         let _vo:ModelVO? = e.information as? ModelVO
-        print("e:\(_vo)")
+        print("e:\(String(describing: _vo ?? nil))")
         
         //mModel?.removeEventListener(Model.ADD)
         //mModel?.removeEventListener(Model.DEC)
