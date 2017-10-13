@@ -13,4 +13,5 @@ Pod::Spec.new do |spec|
     spec.tvos.deployment_target = "9.0"
     spec.source   = { :git => "https://github.com/WildenChen/LionEvents.git", :tag => "#{spec.version}"}
     spec.source_files = "LionEvents/LionEvents/*"
+    spec.pod_target_xcconfig = { "SWIFT_VERSION" => "4.0" }
 end
