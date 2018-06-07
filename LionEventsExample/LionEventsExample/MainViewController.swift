@@ -40,11 +40,8 @@ class MainViewController: UIViewController {
         mResultLabel.textAlignment = NSTextAlignment.center
         self.view.addSubview(mResultLabel)
         
-        //mModel?.addEventListener(addEventListener
-        
         mModel?.addEventListener(Model.ADD, onModelChangeHandler)
         mModel?.addEventListener(Model.DEC, onModelChangeHandler)
-        
         
         let _mainButton:MainButton = MainButton()
         _mainButton.backgroundColor = UIColor.red
@@ -62,23 +59,16 @@ class MainViewController: UIViewController {
         _tButton.frame = CGRect(x: 30, y: 50, width: _sceondButton.frame.width - 40, height: _sceondButton.frame.height - 30)
         _sceondButton.addSubview(_tButton)
         
-        
-        
-        //var _eventHandler:(aEvent:Event) -> () = onAddDecButtonHandler
-        //_eventHandler()
-        //var _handlers:[(aEvent:Event) -> ()] = [(aEvent:Event) -> ()]()
-//        _handlers.append(onAddDecButtonHandler)
-//        _handlers.append(onModelChangeHandler)
-        
-        
     }
     
     private func onModelChangeHandler(_ e:Event){
-        print("onModelChangeHandler")
-        
         mResultLabel.text = "\(mModel!.index)"
-        let _vo:ModelVO? = e.information as? ModelVO
-        print("e:\(String(describing: _vo ?? nil))")
+        if let _vo:ModelVO = e.information as? ModelVO {
+            print("onModelChangeHandler :\(_vo.name),\(_vo.id)")
+        }
+        
+        
+        //print("onModelChangeHandler e:\(String(describing: _vo ?? nil))")
         
         //mModel?.removeEventListener(Model.ADD)
         //mModel?.removeEventListener(Model.DEC)

@@ -20,7 +20,7 @@ public enum LNTouchEvents:String{
 
 open class LNView: UIView {
     private var mIsTouchInside:Bool = true
-    @objc open var touchInside:Bool{
+    open var touchInside:Bool{
         set(value){
             if mIsTouchInside != value {
                 mIsTouchInside = value

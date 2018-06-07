@@ -60,7 +60,7 @@ open class Event:CustomStringConvertible {
     }
     
     open func toString() -> String {
-        return "\(Swift.type(of: self)) type=\(mType) bubbles=\(mBubbles)"
+        return "\(self.className) type = \(mType) bubbles = \(mBubbles)"
     }
     
     open func setTarget(_ aTarget:AnyObject){
@@ -75,9 +75,12 @@ open class Event:CustomStringConvertible {
         return self.toString()
     }
     
-//    var className:String {
-//        return NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last! as String
-//    }
+    open var className:String {
+        let _result:String = String(describing: Swift.type(of: self))
+        //"\(Swift.type(of: self))"
+        return _result
+        //NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last! as String
+    }
     
     deinit{
         //print("event deinit")
